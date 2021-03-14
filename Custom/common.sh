@@ -11,7 +11,7 @@ chmod +x package/base-files/files/bin/AutoBuild_Tools.sh
 if [[ ${REGULAR_UPDATE} == "true" ]]; then
 svn co https://github.com/gd0772/patch/trunk/luci-app-autoupdate package/luci-app-autoupdate
 sed -i 's/"定时更新"/"更新固件"/g' package/luci-app-autoupdate/po/zh-cn/autoupdate.po
-sed -i 's/"定时更新是一个 定时执行更新固件脚本 的应用"/"是一个 定时执行更新固件脚本 的应用 前提是 保证网络畅通 并且能完全访问及下载 Github 上的应用及文件 否则 此更新功能无效"/g' package/luci-app-autoupdate/po/zh-cn/autoupdate.po
+sed -i 's/"定时更新是一个 定时执行更新固件脚本 的应用"/"是一个 定时执行更新固件脚本 的应用 温馨提示：建议让 Github 走梯子 能在很大程度上 实现无需人工干预 自动下载 且 更新固件"/g' package/luci-app-autoupdate/po/zh-cn/autoupdate.po
 mv "${PATH1}"/AutoUpdate.sh package/base-files/files/bin
 chmod +x package/base-files/files/bin/AutoUpdate.sh
 fi
