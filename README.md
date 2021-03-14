@@ -1,1 +1,1 @@
-# 此项目需要搭配 [AutoBuild-Actions](https://github.com/mdtycl/AutoBuild-OpenWrt) 使用
+# 此项目需要搭配 [AutoBuild-OpenWrt](https://github.com/gd0772/AutoBuild-OpenWrt) 使用
