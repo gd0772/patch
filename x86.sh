@@ -20,8 +20,8 @@ rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
 
 # echo '替换系统文件'
-curl -fsSL https://raw.githubusercontent.com/mdtycl/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
-curl -fsSL https://raw.githubusercontent.com/mdtycl/patch/main/index.htm > ./package/lean/autocore/files/x86/index.htm
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/index.htm > ./package/lean/autocore/files/x86/index.htm
 
 # echo '添加 SSR Plus+'
 git clone https://github.com/fw876/helloworld package/diy/ssrplus
@@ -43,10 +43,10 @@ git clone https://github.com/project-lede/luci-app-godproxy package/diy/luci-app
 # echo '微信推送'
 git clone https://github.com/tty228/luci-app-serverchan.git ./package/diy/luci-app-serverchan
 # echo '汉化实时监控'
-svn co https://github.com/mdtycl/patch/trunk/luci-app-netdata ./package/lean/luci-app-netdata
-svn co https://github.com/mdtycl/patch/trunk/netdata ./feeds/packages/admin/netdata
+svn co https://github.com/gd0772/patch/trunk/luci-app-netdata ./package/lean/luci-app-netdata
+svn co https://github.com/gd0772/patch/trunk/netdata ./feeds/packages/admin/netdata
 # echo '替换USB打印'
-svn co https://github.com/mdtycl/patch/trunk/luci-app-usb-printer ./package/lean/luci-app-usb-printer
+svn co https://github.com/gd0772/patch/trunk/luci-app-usb-printer ./package/lean/luci-app-usb-printer
               
 
 # echo '修改插件名称'
@@ -98,7 +98,7 @@ sed -i 's/invalid/# invalid/g' package/lean/samba4/files/smb.conf.template
 sed -i 's/\"services\"/\"nas\"/g' package/lean/luci-app-samba4/luasrc/controller/samba4.lua
 # echo '移动 分流助手 到 网络菜单'
 sed -i 's/\"services\"/\"network\"/g' package/lean/luci-app-mwan3helper/luasrc/controller/mwan3helper.lua
-curl -fsSL https://raw.githubusercontent.com/mdtycl/patch/main/mwan3helper_status.htm > ./package/lean/luci-app-mwan3helper/luasrc/view/mwan3helper/mwan3helper_status.htm
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/mwan3helper_status.htm > ./package/lean/luci-app-mwan3helper/luasrc/view/mwan3helper/mwan3helper_status.htm
 
 # echo '调整 SSRP 到 GFW 菜单'
 sed -i 's/services/vpn/g' package/diy/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
@@ -221,7 +221,7 @@ sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_s
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/v2ray.htm
 
 # echo '添加自定义防火墙说明'
-curl -fsSL https://raw.githubusercontent.com/mdtycl/patch/main/firewall.user > ./package/network/config/firewall/files/firewall.user
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/firewall.user > ./package/network/config/firewall/files/firewall.user
 
 # echo '版本号更新'
 sed -i "s/R21.2.1/R21.2.1 $(TZ=UTC-8 date "+%Y.%m.%d") Compilde by gd772/g" package/lean/default-settings/files/zzz-default-settings
