@@ -1,6 +1,6 @@
 #!/bin/bash
-# https://github.com/mdtycl/AutoBuild-OpenWrt
-# common Module by mdtycl
+# https://github.com/gd0772/AutoBuild-OpenWrt
+# common Module by gd0772
 # echo '删除重复多余主题'
 rm -rf ./feeds/freifunk/themes
 rm -rf ./package/lean/luci-theme-netgear
