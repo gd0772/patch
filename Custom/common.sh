@@ -1,6 +1,6 @@
 #!/bin/bash
-# https://github.com/mdtycl/AutoBuild-OpenWrt
-# common Module by mdtycl
+# https://github.com/gd0772/AutoBuild-OpenWrt
+# common Module by gd0772
 # matrix.target=${Modelfile}
 
 # 全脚本源码通用diy.sh文件
@@ -41,7 +41,7 @@ fi
 # LEDE源码通用diy2.sh文件
 ################################################################################################################
 Diy_lede2() {
-curl -fsSL https://raw.githubusercontent.com/mdtycl/patch/main/x86.sh | sh
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
 echo
 }
 
