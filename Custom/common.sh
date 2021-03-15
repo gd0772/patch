@@ -1,19 +1,17 @@
 #!/bin/bash
-# https://github.com/gd0772/AutoBuild-OpenWrt
+# https://github.com/gd0772/build-openwrt
 # common Module by gd0772
 # matrix.target=${Modelfile}
 
 # 全脚本源码通用diy.sh文件
 Diy_all() {
 git clone https://github.com/gd0772/package package/diy
-mv "${PATH1}"/AutoBuild_Tools.sh package/base-files/files/bin
-chmod +x package/base-files/files/bin/AutoBuild_Tools.sh
 if [[ ${REGULAR_UPDATE} == "true" ]]; then
 git clone https://github.com/281677160/luci-app-autoupdate package/luci-app-autoupdate
 sed -i 's/"定时更新"/"更新固件"/g' package/luci-app-autoupdate/po/zh-cn/autoupdate.po
 sed -i 's/"定时更新是一个 定时执行更新固件脚本 的应用"/"是一个 定时执行更新固件脚本 的应用 温馨提示：建议让 Github 走梯子 能在很大程度上 实现无需人工干预 自动下载 且 更新固件"/g' package/luci-app-autoupdate/po/zh-cn/autoupdate.po
-mv "${PATH1}"/AutoUpdate.sh package/base-files/files/bin
-chmod +x package/base-files/files/bin/AutoUpdate.sh
+mv "${PATH1}"/{AutoUpdate.sh,AutoBuild_Tools.sh} package/base-files/files/bin
+chmod -R +x package/base-files/files/bin
 fi
 }
 
@@ -23,27 +21,24 @@ git clone https://github.com/openwrt-dev/po2lmo.git
 pushd po2lmo
 make && sudo make install
 popd
-rm -rf {LICENSE,README,README.md}
-rm -rf ./*/{LICENSE,README,README.md}
-rm -rf ./*/*/{LICENSE,README,README.md}
 }
 
 ################################################################################################################
 # LEDE源码通用diy1.sh文件
 ################################################################################################################
 Diy_lede() {
-cp -Rf build/common/LEDE/* "${PATH1}"
 if [[ "${Modelfile}" == "Lede_x86_64" ]]; then
-sed -i '/IMAGES_GZIP/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
-echo -e "\nCONFIG_TARGET_IMAGES_GZIP=y" >> "${PATH1}/${CONFIG_FILE}"
+	sed -i '/IMAGES_GZIP/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
+	echo -e "\nCONFIG_TARGET_IMAGES_GZIP=y" >> "${PATH1}/${CONFIG_FILE}"
 fi
 }
 ################################################################################################################
 # LEDE源码通用diy2.sh文件
 ################################################################################################################
 Diy_lede2() {
+cp -Rf "${Home}"/build/common/LEDE/files "${Home}"
+cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
-echo
 }
 
 ################################################################################################################
@@ -53,7 +48,6 @@ echo
 # LIENOL源码通用diy1.sh文件
 ################################################################################################################
 Diy_lienol() {
-cp -Rf build/common/LIENOL/* "${PATH1}"
 rm -rf package/diy/luci-app-adguardhome
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 git clone https://github.com/fw876/helloworld package/danshui/luci-app-ssr-plus
@@ -69,7 +63,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # LIENOL源码通用diy2.sh文件
 ################################################################################################################
 Diy_lienol2() {
-echo
+cp -Rf "${Home}"/build/common/LIENOL/files "${Home}"
+cp -Rf "${Home}"/build/common/LIENOL/diy/* "${Home}"
 rm -rf feeds/packages/net/adguardhome
 sed -i "/exit 0/i\sed -i 's/<%=pcdata(ver.distversion)%>/<%=pcdata(ver.distversion)%><!--/g' /usr/lib/lua/luci/view/admin_status/index.htm" package/default-settings/files/zzz-default-settings
 sed -i "/exit 0/i\sed -i 's/(<%=pcdata(ver.luciversion)%>)/(<%=pcdata(ver.luciversion)%>)-->/g' /usr/lib/lua/luci/view/admin_status/index.htm" package/default-settings/files/zzz-default-settings
@@ -83,9 +78,8 @@ sed -i 's/DEFAULT_PACKAGES +=/DEFAULT_PACKAGES += luci-app-passwall/g' target/li
 # 天灵源码通用diy1.sh文件
 ################################################################################################################
 Diy_immortalwrt() {
-cp -Rf build/common/PROJECT/* "${PATH1}"
 rm -rf package/lienol/luci-app-timecontrol
-rm -rf package/ctcgfw/{luci-app-argon-config,luci-theme-argonv3}
+rm -rf package/ctcgfw/{luci-app-argon-config,luci-theme-argonv3,luci-app-adguardhome}
 rm -rf package/lean/luci-theme-argon
 #if [ -n "$(ls -A "${PATH1}/patches/1806-modify_for_r4s.patch" 2>/dev/null)" ]; then
 #curl -fsSL https://raw.githubusercontent.com/1715173329/nanopi-r4s-openwrt/master/patches/1806-modify_for_r4s.patch > "${PATH1}/patches"/1806-modify_for_r4s.patch
@@ -100,8 +94,11 @@ git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app
 # 天灵源码通用diy2.sh文件
 ################################################################################################################
 Diy_immortalwrt2() {
-echo
+cp -Rf "${Home}"/build/common/PROJECT/files "${Home}"
+cp -Rf "${Home}"/build/common/PROJECT/diy/* "${Home}"
+sed -i '/exit 0/i\echo "*/20 * * * * chmod +x /etc/webweb && source /etc/webweb" >> /etc/crontabs/root' package/lean/default-settings/files/zzz-default-settings
 }
+
 ################################################################################################################
 
 ################################################################################################################
@@ -135,7 +132,7 @@ fi
 
 
 ################################################################################################################
-# 判断插件冲突
+# 判断脚插件冲突
 
 Diy_chajian() {
 echo "				插件冲突信息" > ${Home}/CHONGTU
@@ -162,6 +159,7 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-samba=y" ${Home}/.config` -eq '1' ]]; th
 	fi
 	
 fi
+
 if [[ `grep -c "CONFIG_PACKAGE_luci-app-docker=y" ${Home}/.config` -eq '1' ]]; then
 	if [[ `grep -c "CONFIG_PACKAGE_luci-app-dockerman=y" ${Home}/.config` -eq '1' ]]; then
 		sed -i 's/CONFIG_PACKAGE_luci-app-dockerman=y/# CONFIG_PACKAGE_luci-app-dockerman is not set/g' ${Home}/.config
@@ -172,6 +170,7 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-docker=y" ${Home}/.config` -eq '1' ]]; t
 	fi
 	
 fi
+
 if [[ `grep -c "CONFIG_PACKAGE_luci-app-autopoweroff=y" ${Home}/.config` -eq '1' ]]; then
 	if [[ `grep -c "CONFIG_PACKAGE_luci-app-autoreboot=y" ${Home}/.config` -eq '1' ]]; then
 		sed -i 's/CONFIG_PACKAGE_luci-app-autoreboot=y/# CONFIG_PACKAGE_luci-app-autoreboot is not set/g' ${Home}/.config
@@ -181,6 +180,7 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-autopoweroff=y" ${Home}/.config` -eq '1'
 	fi
 	
 fi
+
 if [[ `grep -c "CONFIG_PACKAGE_luci-app-advanced=y" ${Home}/.config` -eq '1' ]]; then
 	if [[ `grep -c "CONFIG_PACKAGE_luci-app-filebrowser=y" ${Home}/.config` -eq '1' ]]; then
 		sed -i 's/CONFIG_PACKAGE_luci-app-filebrowser=y/# CONFIG_PACKAGE_luci-app-filebrowser is not set/g' ${Home}/.config
@@ -190,22 +190,37 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-advanced=y" ${Home}/.config` -eq '1' ]];
 	fi
 	
 fi
+
 if [[ `grep -c "CONFIG_PACKAGE_luci-theme-argon=y" ${Home}/.config` -eq '1' ]]; then
 	if [[ `grep -c "CONFIG_PACKAGE_luci-theme-argon_new=y" ${Home}/.config` -eq '1' ]]; then
 		sed -i 's/CONFIG_PACKAGE_luci-theme-argon_new=y/# CONFIG_PACKAGE_luci-theme-argon_new is not set/g' ${Home}/.config
 		echo " 您同时选择luci-theme-argon和luci-theme-argon_new，插件有冲突，已删除luci-theme-argon_new" >>CHONGTU
 		echo "插件冲突信息" > ${Home}/Chajianlibiao
 	fi
-	
 fi
+
+if [[ `grep -c "CONFIG_TARGET_ROOTFS_EXT4FS=y" .config` -eq '1' ]]; then
+	echo " " > ${Home}/EXT4
+	echo " 请注意，您选择了ext4安装的固件格式" >> ${Home}/EXT4
+	echo " 请在Target Images  --->里面的下面两项的数值调整" >> ${Home}/EXT4
+	echo " （16）Kernel partition size (in MB) " >> ${Home}/EXT4
+	echo " （160）Root filesystem partition size (in MB)" >> ${Home}/EXT4
+	echo " 请把（16）Kernel partition size (in MB)设置成（30）Kernel partition size (in MB)或者更高数值 " >> ${Home}/EXT4
+	echo " 请把（160）Root filesystem partition size (in MB)设置成（950）Root filesystem partition size (in MB)或者更高数值" >> ${Home}/EXT4
+	echo " Root filesystem partition size (in MB)项设置数值请避免使用‘128’、‘256’、‘512’、‘1024’等之类的数值" >> ${Home}/EXT4
+	echo " 选择了ext4安装格式的固件，Root filesystem partition size (in MB)这项数值太低容易造成插件空间不足编译错误" >> ${Home}/EXT4
+	echo " " >> ${Home}/EXT4
+fi
+
 if [ -n "$(ls -A "${Home}/Chajianlibiao" 2>/dev/null)" ]; then
-echo "" >>CHONGTU
-echo "   插件冲突会导致编译失败，以上操作如非您所需，请关闭此次编译，重新开始编译，避开冲突重新选择插件" >>CHONGTU
-echo "" >>CHONGTU
+	echo "" >>CHONGTU
+	echo "	以上操作如非您所需，请关闭此次编译，重新开始编译，避开冲突重新选择插件" >>CHONGTU
+	echo "" >>CHONGTU
 else
-rm -rf CHONGTU
+	rm -rf {CHONGTU,Chajianlibiao}
 fi
 }
+
 
 ################################################################################################################
 # 判断是否选择AdGuard Home是就指定机型给内核，判断是否选择v2ray，有就去掉
@@ -215,6 +230,9 @@ grep -i CONFIG_PACKAGE_luci-app .config | grep  -v \# >Plug-in
 sed -i "s/=y//g" Plug-in
 sed -i "s/CONFIG_PACKAGE_//g" Plug-in
 sed -i '/INCLUDE/d' Plug-in > /dev/null 2>&1
+cat -n Plug-in > Plugin
+sed -i 's/	luci/、luci/g' Plugin
+awk '{print "      " $0}' Plugin > Plug-in
 
 if [ `grep -c "CONFIG_TARGET_x86_64=y" ${Home}/.config` -eq '1' ]; then
 	TARGET_ADG="x86-64"
@@ -223,17 +241,17 @@ else
 fi
 case "${REPO_URL}" in
 "${LEDE}")
-	
+
 ;;
 "${LIENOL}") 
 	if [[ `grep -c "CONFIG_PACKAGE_luci-app-adguardhome=y" ${Home}/.config` -eq '1' ]]; then
 		sed -i "/exit 0/i\chmod -R 777 /etc/init.d/AdGuardHome /usr/share/AdGuardHome/addhost.sh" package/default-settings/files/zzz-default-settings
 		if [[ "${TARGET_ADG}" == "x86-64" ]];then
-			svn co https://github.com/281677160/Custom/branches/AdGuard/x86-64/usr/bin ${Home}/files/usr/bin
+			svn co https://github.com/281677160/ceshi1/branches/AdGuard/x86-64/usr/bin ${Home}/files/usr/bin
 			chmod -R 777 ${Home}/files/usr/bin/AdGuardHome
 		fi
 		if [[ "${TARGET_ADG}" == "friendlyarm_nanopi-r2s" ]];then
-			svn co https://github.com/281677160/Custom/branches/AdGuard/R2S/usr/bin ${Home}/files/usr/bin
+			svn co https://github.com/281677160/ceshi1/branches/AdGuard/R2S/usr/bin ${Home}/files/usr/bin
 			chmod -R 777 ${Home}/files/usr/bin/AdGuardHome
 		fi
 	fi
@@ -244,7 +262,14 @@ case "${REPO_URL}" in
 	fi
 ;;
 esac
+
+rm -rf {LICENSE,README,README.md,CONTRIBUTED.md,README_EN.md}
+rm -rf ./*/{LICENSE,README,README.md}
+rm -rf ./*/*/{LICENSE,README,README.md}
+rm -rf ./*/*/*/{LICENSE,README,README.md}
 }
+
+
 
 ################################################################################################################
 # N1、微加云、贝壳云、我家云、S9xxx 打包程序
@@ -262,8 +287,6 @@ devices=("phicomm-n1" "rk3328" "s9xxx" "vplus")
 ################################################################################################################
 
 
-
-
 ################################################################################################################
 # 编译信息
 
@@ -279,7 +302,7 @@ fi
 if [[ "${Modelfile}" =~ (Lede_phicomm_n1|Project_phicomm_n1) ]]; then
 	TARGET_PROFILE="N1,Vplus,Beikeyun,L1Pro,S9xxx"
 fi
-echo ""
+echo
 echo " 编译源码: ${COMP2}"
 echo " 源码链接: ${REPO_URL}"
 echo " 源码分支: ${REPO_BRANCH}"
@@ -287,20 +310,24 @@ echo " 源码作者: ${ZUOZHE}"
 echo " 编译机型: ${TARGET_PROFILE}"
 echo " 固件作者: ${Author}"
 echo " 仓库地址: ${Github_Repo}"
-if [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
-	echo " 上传BIN文件夹(固件+IPK): 开启"
+echo " 启动编号: #${Run_number}（本仓库第${Run_number}次启动[${Run_workflow}]工作流程）"
+echo " 编译时间: $(TZ=UTC-8 date "+%Y年%m月%d号.%H时%M分")"
+echo " 您当前使用【${Modelfile}】文件夹编译【${TARGET_PROFILE}】固件"
+echo
+if [[ ${UPLOAD_FIRMWARE} == "true" ]]; then
+	echo " 上传固件在github actions: 开启"
 else
-	echo " 上传BIN文件夹(固件+IPK): 关闭"
+	echo " 上传固件在github actions: 关闭"
 fi
 if [[ ${UPLOAD_CONFIG} == "true" ]]; then
 	echo " 上传[.config]配置文件: 开启"
 else
 	echo " 上传[.config]配置文件: 关闭"
 fi
-if [[ ${UPLOAD_FIRMWARE} == "true" ]]; then
-	echo " 上传固件在github actions: 开启"
+if [[ ${UPLOAD_BIN_DIR} == "true" ]]; then
+	echo " 上传BIN文件夹(固件+IPK): 开启"
 else
-	echo " 上传固件在github actions: 关闭"
+	echo " 上传BIN文件夹(固件+IPK): 关闭"
 fi
 if [[ ${UPLOAD_COWTRANSFER} == "true" ]]; then
 	echo " 上传固件到到【奶牛快传】和【WETRANSFER】: 开启"
@@ -338,8 +365,9 @@ else
 	echo " 把定时自动更新插件编译进固件: 关闭"
 	echo
 fi
-echo " * 您当前使用的是【${Modelfile}】文件夹编译【${TARGET_PROFILE}】固件,编译时间 $(TZ=UTC-8 date "+%Y年%m月%d日")！*"
-echo
+if [ -n "$(ls -A "${Home}/EXT4" 2>/dev/null)" ]; then
+	[ -s EXT4 ] && cat EXT4
+fi
 echo "  系统空间      类型   总数  已用  可用 使用率"
 cd ../ && df -hT $PWD && cd openwrt
 echo
@@ -348,10 +376,10 @@ if [ -n "$(ls -A "${Home}/Chajianlibiao" 2>/dev/null)" ]; then
 	[ -s CHONGTU ] && cat CHONGTU
 fi
 if [ -n "$(ls -A "${Home}/Plug-in" 2>/dev/null)" ]; then
-
-	echo "	   已选插件列表"
-	[ -s Plug-in ] && cat -n Plug-in
+	echo
+	echo "		已选插件列表"
+	[ -s Plug-in ] && cat Plug-in
 	echo
 fi
-rm -rf {CHONGTU,Plug-in,Chajianlibiao}
+rm -rf {CHONGTU,Plug-in,Plugin,Chajianlibiao}
 }
