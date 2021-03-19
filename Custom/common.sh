@@ -131,11 +131,17 @@ fi
 
 
 ################################################################################################################
-# 判断脚插件冲突
+# 判断插件冲突
 
 Diy_chajian() {
 echo "				插件冲突信息" > ${Home}/CHONGTU
 
+if [[ `grep -c "CONFIG_PACKAGE_luci-app-bypass_INCLUDE_V2ray=y" ${Home}/.config` -eq '1' ]]; then
+	sed -i 's/CONFIG_PACKAGE_luci-app-bypass_INCLUDE_V2ray=y/# CONFIG_PACKAGE_luci-app-bypass_INCLUDE_V2ray is not set/g' ${Home}/.config
+	echo -e "\nCONFIG_PACKAGE_luci-app-bypass=y" >> ${Home}/.config
+	echo " 您选择的luci-app-bypass勾选了V2ray，Xary已包含V2ray，已删除V2ray" >>CHONGTU
+	echo "插件冲突信息" > ${Home}/Chajianlibiao
+fi
 if [[ `grep -c "CONFIG_PACKAGE_luci-app-samba=y" ${Home}/.config` -eq '1' ]]; then
 	if [[ `grep -c "CONFIG_PACKAGE_luci-app-samba4=y" ${Home}/.config` -eq '1' ]]; then
 		sed -i 's/CONFIG_PACKAGE_autosamba=y/# CONFIG_PACKAGE_autosamba is not set/g' ${Home}/.config
@@ -144,52 +150,17 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-samba=y" ${Home}/.config` -eq '1' ]]; th
 		sed -i 's/CONFIG_PACKAGE_samba36-server=y/# CONFIG_PACKAGE_samba36-server is not set/g' ${Home}/.config
 		echo " 您同时选择luci-app-samba和luci-app-samba4，插件有冲突，已删除luci-app-samba" >>CHONGTU
 		echo "插件冲突信息" > ${Home}/Chajianlibiao
-	
-fi
-
-if [[ `grep -c "CONFIG_PACKAGE_luci-app-docker=y" ${Home}/.config` -eq '1' ]]; then
-	if [[ `grep -c "CONFIG_PACKAGE_luci-app-dockerman=y" ${Home}/.config` -eq '1' ]]; then
-		sed -i 's/CONFIG_PACKAGE_luci-app-dockerman=y/# CONFIG_PACKAGE_luci-app-dockerman is not set/g' ${Home}/.config
-		sed -i 's/CONFIG_PACKAGE_luci-lib-docker=y/# CONFIG_PACKAGE_luci-lib-docker is not set/g' ${Home}/.config
-		sed -i 's/CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y/# CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn is not set/g' ${Home}/.config
-		echo " 您同时选择luci-app-docker和luci-app-dockerman，插件有冲突，已删除luci-app-dockerman" >>CHONGTU
-		echo "插件冲突信息" > ${Home}/Chajianlibiao
 	fi
 	
 fi
-
-if [[ `grep -c "CONFIG_PACKAGE_luci-app-autopoweroff=y" ${Home}/.config` -eq '1' ]]; then
-	if [[ `grep -c "CONFIG_PACKAGE_luci-app-autoreboot=y" ${Home}/.config` -eq '1' ]]; then
-		sed -i 's/CONFIG_PACKAGE_luci-app-autoreboot=y/# CONFIG_PACKAGE_luci-app-autoreboot is not set/g' ${Home}/.config
-		sed -i 's/CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y/# CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y is not set/g' ${Home}/.config
-		echo " 您同时选择luci-app-autopoweroff和luci-app-autoreboot，插件有冲突，已删除luci-app-autoreboot" >>CHONGTU
-		echo "插件冲突信息" > ${Home}/Chajianlibiao
-	fi
-	
-fi
-
-if [[ `grep -c "CONFIG_TARGET_ROOTFS_EXT4FS=y" .config` -eq '1' ]]; then
-	echo " " > ${Home}/EXT4
-	echo " 请注意，您选择了ext4安装的固件格式" >> ${Home}/EXT4
-	echo " 请在Target Images  --->里面的下面两项的数值调整" >> ${Home}/EXT4
-	echo " （16）Kernel partition size (in MB) " >> ${Home}/EXT4
-	echo " （160）Root filesystem partition size (in MB)" >> ${Home}/EXT4
-	echo " 请把（16）Kernel partition size (in MB)设置成（30）Kernel partition size (in MB)或者更高数值 " >> ${Home}/EXT4
-	echo " 请把（160）Root filesystem partition size (in MB)设置成（950）Root filesystem partition size (in MB)或者更高数值" >> ${Home}/EXT4
-	echo " Root filesystem partition size (in MB)项设置数值请避免使用‘128’、‘256’、‘512’、‘1024’等之类的数值" >> ${Home}/EXT4
-	echo " 选择了ext4安装格式的固件，Root filesystem partition size (in MB)这项数值太低容易造成插件空间不足编译错误" >> ${Home}/EXT4
-	echo " " >> ${Home}/EXT4
-fi
-
 if [ -n "$(ls -A "${Home}/Chajianlibiao" 2>/dev/null)" ]; then
-	echo "" >>CHONGTU
-	echo "	以上操作如非您所需，请关闭此次编译，重新开始编译，避开冲突重新选择插件" >>CHONGTU
-	echo "" >>CHONGTU
+echo "" >>CHONGTU
+echo "   插件冲突会导致编译失败，以上操作如非您所需，请关闭此次编译，重新开始编译，避开冲突重新选择插件" >>CHONGTU
+echo "" >>CHONGTU
 else
-	rm -rf {CHONGTU,Chajianlibiao}
+rm -rf CHONGTU
 fi
 }
-
 
 ################################################################################################################
 # 判断是否选择AdGuard Home是就指定机型给内核，判断是否选择v2ray，有就去掉
