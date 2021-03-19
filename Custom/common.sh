@@ -47,6 +47,7 @@ curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
 # LIENOL源码通用diy1.sh文件
 ################################################################################################################
 Diy_lienol() {
+echo
 }
 ################################################################################################################
 # LIENOL源码通用diy2.sh文件
@@ -63,6 +64,7 @@ cp -Rf "${Home}"/build/common/LIENOL/diy/* "${Home}"
 # 天灵源码通用diy1.sh文件
 ################################################################################################################
 Diy_immortalwrt() {
+
 }
 
 ################################################################################################################
@@ -115,8 +117,7 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-bypass_INCLUDE_V2ray=y" ${Home}/.config`
 	sed -i 's/CONFIG_PACKAGE_luci-app-bypass_INCLUDE_V2ray=y/# CONFIG_PACKAGE_luci-app-bypass_INCLUDE_V2ray is not set/g' ${Home}/.config
 	echo -e "\nCONFIG_PACKAGE_luci-app-bypass=y" >> ${Home}/.config
 	echo " 您选择的luci-app-bypass勾选了V2ray，Xary已包含V2ray，已删除V2ray" >>CHONGTU
-	echo "插件冲突信息" > ${Home}/Chajianlibiao
-	
+	echo "插件冲突信息" > ${Home}/Chajianlibiao	
 fi
 if [[ `grep -c "CONFIG_PACKAGE_luci-app-samba=y" ${Home}/.config` -eq '1' ]]; then
 	if [[ `grep -c "CONFIG_PACKAGE_luci-app-samba4=y" ${Home}/.config` -eq '1' ]]; then
