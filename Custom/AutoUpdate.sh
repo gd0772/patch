@@ -102,7 +102,7 @@ x86-64)
 	Firmware_GESHI="${GESHI_Type}.${Firmware_Type}"
 	Detail_SFX="${BOOT_Type}.detail"
 	CURRENT_Device="x86-64"
-	Space_RQM=500
+	Space_RQM=450
 ;;
 *)
 	CURRENT_Device="$(jsonfilter -e '@.model.id' < /etc/board.json | tr ',' '_')"
