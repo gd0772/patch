@@ -38,6 +38,7 @@ Diy_lede2() {
 cp -Rf "${Home}"/build/common/LEDE/files "${Home}"
 cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
+chmod -R +x package/diy
 }
 
 ################################################################################################################
