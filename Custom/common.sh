@@ -16,10 +16,8 @@ fi
 
 # 全脚本源码通用diy2.sh文件
 Diy_all2() {
-git clone https://github.com/openwrt-dev/po2lmo.git
-pushd po2lmo
-make && sudo make install
-popd
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
+chmod -R +x package/diy
 }
 
 ################################################################################################################
@@ -37,8 +35,7 @@ fi
 Diy_lede2() {
 cp -Rf "${Home}"/build/common/LEDE/files "${Home}"
 cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
-curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
-chmod -R +x package/diy
+
 }
 
 ################################################################################################################
