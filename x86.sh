@@ -226,14 +226,6 @@ sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/model/cbi/v2
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/log.htm
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/users_list_status.htm
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/v2ray.htm
-# echo '调整 应用过滤 到 管控 菜单'
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/controller/appfilter.lua
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/model/cbi/appfilter/appfilter.lua
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/model/cbi/appfilter/dev_status.lua
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/view/admin_network/dev_status.htm
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/view/admin_network/user_status.htm
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/view/cbi/oaf_dvalue.htm
-sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/view/cbi/oaf_upload.htm
 
 # echo '添加自定义防火墙说明'
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/firewall.user > ./package/network/config/firewall/files/firewall.user
