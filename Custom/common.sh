@@ -306,7 +306,7 @@ fi
 if [ -n "$(ls -A "${Home}/EXT4" 2>/dev/null)" ]; then
 	[ -s EXT4 ] && cat EXT4
 fi
-echo "  系统空间      类型   总数  已用  可用 使用率"
+echo "  系统空间      类型   容量  已用  可用 使用率"
 cd ../ && df -hT $PWD && cd openwrt
 echo
 if [ -n "$(ls -A "${Home}/Chajianlibiao" 2>/dev/null)" ]; then
