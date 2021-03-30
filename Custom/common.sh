@@ -45,7 +45,10 @@ cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
 # LIENOL源码通用diy1.sh文件
 ################################################################################################################
 Diy_lienol() {
-
+if [[ "${Modelfile}" == "Lienol_x86_64" ]]; then
+	sed -i '/IMAGES_GZIP/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
+	echo -e "\nCONFIG_TARGET_IMAGES_GZIP=y" >> "${PATH1}/${CONFIG_FILE}"
+fi
 }
 ################################################################################################################
 # LIENOL源码通用diy2.sh文件
@@ -64,7 +67,6 @@ cp -Rf "${Home}"/build/common/LIENOL/diy/* "${Home}"
 ################################################################################################################
 Diy_immortalwrt() {
 rm -rf package/lienol/luci-app-timecontrol
-
 }
 
 ################################################################################################################
@@ -73,7 +75,6 @@ rm -rf package/lienol/luci-app-timecontrol
 Diy_immortalwrt2() {
 cp -Rf "${Home}"/build/common/PROJECT/files "${Home}"
 cp -Rf "${Home}"/build/common/PROJECT/diy/* "${Home}"
-
 }
 
 ################################################################################################################
