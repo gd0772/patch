@@ -61,7 +61,7 @@ sed -i 's/TTYD 终端/命令行/g' package/lean/luci-app-ttyd/po/zh-cn/terminal.
 sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/diy/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 sed -i 's/PassWall/Pass Wall/g' package/diy/passwall/luci-app-passwall/po/zh-cn/passwall.po
 sed -i 's/广告屏蔽大师 Plus+/广告屏蔽/g' package/lean/luci-app-adbyby-plus/po/zh-cn/adbyby.po
-sed -i 's/GodProxy滤广告/KPR去广告/g' package/diy/luci-app-godproxy/luasrc/controller/koolproxy.lua
+sed -i 's/"GodProxy滤广告"/"KPR去广告"/g' package/diy/luci-app-godproxy/po/zh-cn/koolproxy.po
 sed -i 's/GodProxy滤广告/KoolProxyR去广告/g' package/diy/luci-app-godproxy/luasrc/model/cbi/koolproxy/global.lua
 sed -i 's/GodProxy 访问控制/KoolProxyR 访问控制/g' package/diy/luci-app-godproxy/luasrc/model/cbi/koolproxy/global.lua
 sed -i 's/GodProxy 帮助支持/KoolProxyR帮助支持/g' package/diy/luci-app-godproxy/luasrc/model/cbi/koolproxy/global.lua
