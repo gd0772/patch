@@ -19,6 +19,8 @@ rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 
 # echo '修改 默认IP'
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
+# echo '修改 主机名'
+#sed -i "s/'OpenWrt'/'N1'/g" package/base-files/files/bin/config_generate
 
 # echo '替换系统文件'
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
