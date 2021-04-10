@@ -71,7 +71,8 @@ sed -i 's/GodProxy是/是/g' package/diy/luci-app-godproxy/luasrc/model/cbi/kool
 sed -i 's/GodProxy/KoolProxyR/g' package/diy/luci-app-godproxy/luasrc/model/cbi/koolproxy/global.lua
 sed -i 's/GodProxy滤广告/KPR去广告/g' package/diy/luci-app-godproxy/luasrc/model/cbi/koolproxy/rss_rule.lua
 sed -i 's/Shaoxia的KoolProxyR详细使用说明/关于 KoolProxyR 的详细使用说明/g' package/diy/luci-app-godproxy/luasrc/view/koolproxy/feedback.htm
-sed -i 's/GodProxy/KoolProxyR/g' package/diy/luci-app-godproxy/luasrc/view/koolproxy/feedback.htm
+sed -i 's/GodProxy/KoolProxyR/g' package/diy/luci-app-godproxy/luasrc/view/koolproxy/koolproxy_status.htm
+sed -i 's/GodProxy滤广告/KPR去广告/g' package/diy/luci-app-godproxy/luasrc/view/koolproxy/feedback.htm
 sed -i 's/京东签到服务/京东签到/g' package/diy/luci-app-jd-dailybonus/luasrc/controller/jd-dailybonus.lua
 sed -i 's/msgstr "KMS 服务器"/msgstr "KMS 激活"/g' package/lean/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
