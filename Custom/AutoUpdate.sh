@@ -84,7 +84,7 @@ Overlay_Available="$(df -h | grep ":/overlay" | awk '{print $4}' | awk 'NR==1')"
 case ${DEFAULT_Device} in
 x86-64)
 	[[ -z ${Firmware_Type} ]] && Firmware_Type="img"
-	if [[ "${Firmware_Type}" == "img" ]];then
+	if [[ "${Firmware_Type}" == ".img" ]];then
 		Compressed_x86="1"
 	else
 		Compressed_x86="0"
