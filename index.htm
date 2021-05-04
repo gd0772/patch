@@ -681,17 +681,11 @@
 					Math.floor(info.memory.total / 1048576) + " <%:MB%>"
 				);
 
-if (e = document.getElementById('memfree'))
-				e.innerHTML = progressbar(
-					Math.floor(info.memory.free / 1048576) + " <%:MB%>",
-					Math.floor(info.memory.total / 1048576) + " <%:MB%>"
-				);
-				
 			if (e = document.getElementById('membuff'))
 				e.innerHTML = progressbar(
 					Math.floor(info.memory.buffered / 1048576) + " <%:MB%>",
 					Math.floor(info.memory.total / 1048576) + " <%:MB%>"
-				);	
+				);
 
 			if (e = document.getElementById('swaptotal'))
 				e.innerHTML = progressbar(
@@ -730,21 +724,20 @@ if (e = document.getElementById('memfree'))
 		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
 		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
 		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
-		<tr><td width="33%"><%:传送门%></td>
-		<td id="cpr">
-		<input type="button" class="cbi-button cbi-button-apply" value="固件下载频道" onclick="window.open('https://t.me/joinchat/SUSPSjofE505ryWC')" />
-		<input type="button" class="cbi-button cbi-button-apply" value="自助使用交流" onclick="window.open('http://t.me/joinchat/NQI2W1iXJuFaXWDRov-X1w')" />
+		<tr><td width="33%"><%:使用帮助%></td>
+		        <td id="cpr">
+		        <input type="button" class="cbi-button cbi-button-apply" value="固件下载频道" onclick="window.open('https://t.me/joinchat/SUSPSjofE505ryWC')" />
+		        <input type="button" class="cbi-button cbi-button-apply" value="自助使用交流" onclick="window.open('http://t.me/joinchat/NQI2W1iXJuFaXWDRov-X1w')" />
 				</td>
 			</tr>
 	</table>
 </fieldset>
-			
+
 <fieldset class="cbi-section">
 	<legend><%:Memory%></legend>
 
 	<table width="100%" cellspacing="10">
 		<tr><td width="33%"><%:Total Available%></td><td id="memtotal">-</td></tr>
-		<tr><td width="33%"><%:Free%></td><td id="memfree">-</td></tr>
 		<tr><td width="33%"><%:Buffered%></td><td id="membuff">-</td></tr>
 	</table>
 </fieldset>
