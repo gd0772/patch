@@ -9,15 +9,12 @@
 	local util = require "luci.util"
 	local stat = require "luci.tools.status"
 	local ver = require "luci.version"
-
 	local has_ipv6 = fs.access("/usr/sbin/ip6tables")
 	local has_dhcp = fs.access("/etc/config/dhcp")
 	local has_wifi = ((fs.stat("/etc/config/wireless", "size") or 0) > 0)
-
 	local sysinfo = luci.util.ubus("system", "info") or { }
 	local boardinfo = luci.util.ubus("system", "board") or { }
 	local unameinfo = nixio.uname() or { }
-
 	local meminfo = sysinfo.memory or {
 		total = 0,
 		free = 0,
@@ -51,16 +48,16 @@
 		local eth_info = luci.sys.exec("ethinfo")
 
 		local user_info = luci.sys.exec("cat /proc/net/arp | grep '0x2' | wc -l") or 0
-		
 		local cpu_usage = (luci.sys.exec("expr 100 - $(top -n 1 | grep 'CPU:' | awk -F '%' '{print$4}' | awk -F ' ' '{print$2}')") or "6") .. "%"
-
+        local ram_size = luci.sys.exec("free -m | grep Mem | awk '{print $2/1024}'")
 		local rv = {
 			cpuusage    = cpu_usage,
 			cpuinfo    = cpu_info,
 			ethinfo    = eth_info,
 			userinfo    = user_info,
+            ramsize    = ram_size,
 			uptime     = sysinfo.uptime or 0,
-			localtime  = os.date(),
+			localtime  = os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X"),
 			loadavg    = sysinfo.load or { 0, 0, 0 },
 			memory     = meminfo,
 			memcached  = mem_cached,
@@ -146,13 +143,22 @@
 					.format(bss[p+'rate'] / 1000, bss[p+'mhz']),
 		    ht = bss[p+'ht'], vht = bss[p+'vht'],
 			mhz = bss[p+'mhz'], nss = bss[p+'nss'],
-			mcs = bss[p+'mcs'], sgi = bss[p+'short_gi'];
+			mcs = bss[p+'mcs'], sgi = bss[p+'short_gi'],
+			he = bss[p+'he'], he_gi = bss[p+'he_gi'],
+			he_dcm = bss[p+'he_dcm'];
 
 		if (ht || vht) {
 			if (vht) s += ', VHT-MCS %d'.format(mcs);
 			if (nss) s += ', VHT-NSS %d'.format(nss);
 			if (ht)  s += ', MCS %s'.format(mcs);
 			if (sgi) s += ', <%:Short GI%>';
+		}
+		
+		if (he) {
+			s += ', HE-MCS %d'.format(mcs);
+			if (nss) s += ', HE-NSS %d'.format(nss);
+			if (he_gi) s += ', HE-GI %d'.format(he_gi);
+			if (he_dcm) s += ', HE-DCM %d'.format(he_dcm);
 		}
 
 		return s;
@@ -667,6 +673,11 @@
 			if (e = document.getElementById('cpuusage'))
 				e.innerHTML = info.cpuusage;
 
+
+			if (e = document.getElementById('ramsize'))
+                e.innerHTML =  String.format('%.0f', info.ramsize)+ " <%:MB%>";
+
+
 			if (e = document.getElementById('loadavg'))
 				e.innerHTML = String.format(
 					'%.02f, %.02f, %.02f',
@@ -678,6 +689,13 @@
 			if (e = document.getElementById('memtotal'))
 				e.innerHTML = progressbar(
 					Math.floor(((info.memory.free + info.memory.buffered) / 1048576) + (info.memcached / 1024)) + " <%:MB%>",
+					Math.floor(info.memory.total / 1048576) + " <%:MB%>"
+
+				);
+
+			if (e = document.getElementById('memfree'))
+				e.innerHTML = progressbar(
+					Math.floor(info.memory.free / 1048576) + " <%:MB%>",
 					Math.floor(info.memory.total / 1048576) + " <%:MB%>"
 				);
 
@@ -715,6 +733,7 @@
 		<tr><td width="33%"><%:Hostname%></td><td><%=luci.sys.hostname() or "?"%></td></tr>
 		<tr><td width="33%"><%:Model%></td><td><%=pcdata(boardinfo.model or "?")%> <%=luci.sys.exec("cat /etc/bench.log") or " "%></td></tr>
 		<tr><td width="33%"><%:CPU Info%></td><td id="cpuinfo">-</td></tr>
+        <tr><td width="33%"><%:RAM Size%></td><td id="ramsize">-</td></tr>
 		<tr><td width="33%"><%:Firmware Version%></td><td>
 			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
 			<%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
@@ -724,20 +743,21 @@
 		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
 		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
 		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
-		<tr><td width="33%"><%:使用帮助%></td>
-		        <td id="cpr">
-		        <input type="button" class="cbi-button cbi-button-apply" value="固件下载频道" onclick="window.open('https://t.me/joinchat/SUSPSjofE505ryWC')" />
-		        <input type="button" class="cbi-button cbi-button-apply" value="自助使用交流" onclick="window.open('http://t.me/joinchat/NQI2W1iXJuFaXWDRov-X1w')" />
+                                   <tr><td width="33%"><%:help%></td>
+			<td id="cpr">
+				<input type="button" class="cbi-button cbi-button-apply" value="<%:固件下载%>" onclick="window.open('https://t.me/joinchat/SUSPSjofE505ryWC')" />
+				<input type="button" class="cbi-button cbi-button-apply" value="<%:自助交流%>" onclick="window.open('http://t.me/joinchat/NQI2W1iXJuFaXWDRov-X1w')" />
 				</td>
 			</tr>
-	</table>
+</table>
 </fieldset>
+
 
 <fieldset class="cbi-section">
 	<legend><%:Memory%></legend>
-
 	<table width="100%" cellspacing="10">
 		<tr><td width="33%"><%:Total Available%></td><td id="memtotal">-</td></tr>
+		<tr><td width="33%"><%:Free%></td><td id="memfree">-</td></tr>
 		<tr><td width="33%"><%:Buffered%></td><td id="membuff">-</td></tr>
 	</table>
 </fieldset>
@@ -752,14 +772,12 @@
 	</table>
 </fieldset>
 <% end %>
-
 <fieldset class="cbi-section">
 	<legend><%:Interfaces%></legend>
 
 	<table width="100%" cellspacing="10" id="ethinfo">
 	</table>
 </fieldset>
-
 <fieldset class="cbi-section">
 	<legend><%:Network%></legend>
 
@@ -841,6 +859,35 @@
 		<tr><td><em><%:Collecting data...%></em></td></tr>
 	</table>
 </fieldset>
+<fieldset class="cbi-section">
+	<legend><%:Associated Stations%></legend>
+
+	<table class="cbi-section-table valign-middle" id="wifi_assoc_table">
+		<tr class="cbi-section-table-titles">
+			<th class="cbi-section-table-cell">&#160;</th>
+			<th class="cbi-section-table-cell"><%:Network%></th>
+			<th class="cbi-section-table-cell"><%:MAC-Address%></th>
+			<th class="cbi-section-table-cell"><%:Host%></th>
+			<th class="cbi-section-table-cell"><%:Signal%> / <%:Noise%></th>
+			<th class="cbi-section-table-cell"><%:RX Rate%> / <%:TX Rate%></th>
+		</tr>
+		<tr class="cbi-section-table-row">
+			<td colspan="6"><em><br /><%:Collecting data...%></em></td>
+		</tr>
+	</table>
+</fieldset>
 <% end %>
+
+<%-
+	local incdir = util.libpath() .. "/view/admin_status/index/"
+	if fs.access(incdir) then
+		local inc
+		for inc in fs.dir(incdir) do
+			if inc:match("%.htm$") then
+				include("admin_status/index/" .. inc:gsub("%.htm$", ""))
+			end
+		end
+	end
+-%>
 
 <%+footer%>
