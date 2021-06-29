@@ -104,7 +104,7 @@ sed -i 's/MWAN3 分流助手/分流助手/g' package/lean/luci-app-mwan3helper/p
 sed -i 's/运行环境检测失败，请先关闭ACC加速模块!/运行环境检测失败，请关闭 网络加速!/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/model/cbi/appfilter/appfilter.lua
 sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
 sed -i 's/实时流量监测/流量监测/g' package/lean/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
-sed -i 's/invalid/# invalid/g' package/lean/samba4/files/smb.conf.template
+sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
 
 # echo '移动 网络共享 到 存储菜单'
 sed -i 's/\"services\"/\"nas\"/g' package/lean/luci-app-samba4/luasrc/controller/samba4.lua
