@@ -46,8 +46,10 @@ git clone https://github.com/project-lede/luci-app-godproxy package/diy/luci-app
 # echo '微信推送'
 git clone https://github.com/tty228/luci-app-serverchan.git ./package/diy/luci-app-serverchan
 # echo '汉化实时监控'
-svn co https://github.com/gd0772/patch/trunk/luci-app-netdata ./package/lean/luci-app-netdata
-svn co https://github.com/gd0772/patch/trunk/netdata ./feeds/packages/admin/netdata
+rm -rf ./package/lean/luci-app-netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata ./package/lean/luci-app-netdata
+rm -rf ./feeds/packages/admin/netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/netdata ./feeds/packages/admin/netdata
+#svn co https://github.com/gd0772/patch/trunk/luci-app-netdata ./package/lean/luci-app-netdata
+#svn co https://github.com/gd0772/patch/trunk/netdata ./feeds/packages/admin/netdata
 # echo '替换USB打印'
 svn co https://github.com/gd0772/patch/trunk/luci-app-usb-printer ./package/lean/luci-app-usb-printer
 # echo '替换aria2'
