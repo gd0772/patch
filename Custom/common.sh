@@ -5,7 +5,7 @@
 
 # 全脚本源码通用diy.sh文件
 Diy_all() {
-git clone https://github.com/gd0772/package package/diy
+git clone https://github.com/gd0772/package package/gd772
 if [[ ${REGULAR_UPDATE} == "true" ]]; then
 git clone https://github.com/gd0772/luci-app-autoupdate package/luci-app-autoupdate
 sed -i 's/"定时更新"/"更新固件"/g' package/luci-app-autoupdate/po/zh-cn/autoupdate.po
@@ -17,7 +17,7 @@ fi
 # 全脚本源码通用diy2.sh文件
 Diy_all2() {
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86.sh | sh
-chmod -R +x package/diy
+chmod -R +x package/gd772
 }
 
 ################################################################################################################
