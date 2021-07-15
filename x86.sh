@@ -55,7 +55,7 @@ rm -rf ./package/lean/luci-app-netdata && svn co https://github.com/sirpdboy/sir
 rm -rf ./feeds/packages/admin/netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/netdata ./feeds/packages/admin/netdata
 
 # echo 'Dockerman'
-rm -rf package/gd772/luci-app-dockerman && git clone https://github.com/lisaac/luci-app-dockerman package/gd772/luci-app-dockerman
+rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
               
 # echo '修改插件名称'
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
