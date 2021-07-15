@@ -144,8 +144,8 @@ sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_s
 # echo '添加自定义防火墙说明'
 #curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/firewall.user > ./package/network/config/firewall/files/firewall.user
 
-# echo '版本号更新'
-sed -i "s/R21.6.22/R21.7.1.100 gd772 Compiled in $(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/default-settings/files/zzz-default-settings
+# echo '更新编译日期'
+sed -i "s/gd772 于 2021.07.12 编译/gd772 于 $(TZ=UTC-8 date "+%Y.%m.%d") 编译/g" package/lean/autocore/files/x86/index.htm
 
 # echo '更换内核'
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
