@@ -160,7 +160,7 @@ sed -i 's/\"services\"/\"network\"/g' package/lean/luci-app-mwan3helper/luasrc/c
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/mwan3helper_status.htm > ./package/lean/luci-app-mwan3helper/luasrc/view/mwan3helper/mwan3helper_status.htm
 
 # echo '调整 Dockerman 到 服务 菜单'
-sed -i 's/"admin","docker"/"admin","services","docker"/g' package/gd772/luci-app-dockerman/luasrc/controller/*.lua
+sed -i 's/"admin",/"admin","services",/g' package/gd772/luci-app-dockerman/luasrc/controller/*.lua
 sed -i 's/"admin","docker"/"admin","services","docker"/g' package/gd772/luci-app-dockerman/luasrc/model/*.lua
 sed -i 's/"admin","docker"/"admin","services","docker"/g' package/gd772/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
 sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/view/dockerman/*.htm
