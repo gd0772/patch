@@ -6,6 +6,7 @@ uci commit luci
 
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
+uci set system.@system[0].ttylogin=1
 uci commit system
 
 uci set fstab.@global[0].anon_mount=1
@@ -30,9 +31,9 @@ sed -i 's/\"network\"/\"control\"/g' /usr/lib/lua/luci/controller/eqos.lua
 #uci set sfe.config.bbr=1
 #uci commit sfe
 
-uci set flowoffload.@flow[0].flow_offloading=0
-uci set flowoffload.@flow[0].bbr=1
-uci commit flowoffload
+#uci set flowoffload.@flow[0].flow_offloading=0
+#uci set flowoffload.@flow[0].bbr=1
+#uci commit flowoffload
 
 uci set vsftpd.@listen[0].enable4='0'
 uci commit vsftpd
