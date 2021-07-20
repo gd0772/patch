@@ -102,7 +102,7 @@ sed -i 's/Frp 内网穿透/Frp 客户端/g' package/lean/luci-app-frpc/po/zh-cn/
 
 sed -i 's/Frps/Frp 服务端/g' package/lean/luci-app-frps/luasrc/controller/frps.lua
 
-sed -i 's/Nps 内网穿透/NPS 客户端/g' package/lean/luci-app-nps/po/zh-cn/nps.po
+sed -i 's/Nps 内网穿透/Nps 客户端/g' package/lean/luci-app-nps/po/zh-cn/nps.po
 
 sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' package/lean/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 
@@ -127,6 +127,8 @@ sed -i 's/_("qBittorrent")/_("BT下载")/g' package/lean/luci-app-qbittorrent/lu
 sed -i 's/BaiduPCS Web/百毒网盘/g' package/lean/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
 
 sed -i 's/IPSec VPN 服务器/IPSec 服务/g' package/lean/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
+
+sed -i 's/"PPTP VPN 服务器"/"PPTP 服务"/g' package/lean/luci-app-pptp-server/po/zh-cn/pptp.po
 
 sed -i 's/V2ray 服务器/V2ray 服务/g' package/lean/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 
