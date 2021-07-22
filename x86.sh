@@ -11,6 +11,7 @@ rm -rf ./feeds/luci/themes/luci-theme-material
 # echo '删除重复插件'
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/admin/netdata
+rm -rf ./package/gd772/luci-lib-docker
 rm -rf ./package/lean/luci-app-netdata
 rm -rf ./package/lean/luci-app-jd-dailybonus
 rm -rf ./package/gd772/luci-app-pptp-server
