@@ -2,63 +2,63 @@
 # https://github.com/gd0772/AutoBuild-OpenWrt
 # common Module by gd772
 
-# echo '删除重复多余主题'
+echo -e "\x1B[92m删除无用主题\x1B[0m" ""
 rm -rf ./feeds/freifunk/themes
-rm -rf ./package/lean/luci-theme-netgear
 rm -rf ./package/lean/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-material
-
-# echo '删除重复插件'
+echo -e "\x1B[92m删除重复插件\x1B[0m" ""
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/admin/netdata
 rm -rf ./package/lean/luci-app-netdata
 rm -rf ./package/lean/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
-
-# echo '修改 默认IP'
+echo -e "\x1B[92m添加 gd772常用 插件包\x1B[0m" ""
+rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd772
+echo -e "\x1B[92m插件包 添加完成\x1B[0m" ""
+echo
+echo -e "\x1B[92m修改 默认IP为 192.168.123.2\x1B[0m" ""
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
-
-# echo '修改 主机名'
+#echo -e "\x1B[92m修改 主机名为 N1\x1B[0m" ""
 #sed -i "s/'OpenWrt'/'N1'/g" package/base-files/files/bin/config_generate
-
-# echo '替换系统文件'
+echo -e "\x1B[92m修改 系统文件\x1B[0m" ""
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
-curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/index.htm > ./package/lean/autocore/files/x86/index.htm
 #curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/n1_index.htm > ./feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-
-# echo '添加 SSR Plus+'
+echo -e "\x1B[92m系统文件 修改完成\x1B[0m" ""
+echo
+echo -e "\x1B[92m添加 SSR Plus+\x1B[0m" ""
 git clone https://github.com/fw876/helloworld package/gd772/ssrplus
-
-# echo '添加 小猫咪'
+echo
+echo -e "\x1B[92m添加 小猫咪\x1B[0m" ""
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/gd772/luci-app-openclash
-
-# echo '添加 Passwall'
+echo
+echo -e "\x1B[92m添加 Pass wall\x1B[0m" ""
 git clone https://github.com/xiaorouji/openwrt-passwall package/gd772/passwall
-
-# echo '添加 HelloWorld'
+echo
+echo -e "\x1B[92m添加 Hello World\x1B[0m" ""
 git clone https://github.com/jerrykuku/luci-app-vssr package/gd772/luci-app-vssr
-
-# echo '添加 京东签到'
+echo
+echo -e "\x1B[92m添加 京东签到\x1B[0m" ""
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/gd772/luci-app-jd-dailybonus
-
-# echo '添加 SmartDNS'
+echo
+echo -e "\x1B[92m添加 SmartDNS\x1B[0m" ""
 git clone https://github.com/pymumu/luci-app-smartdns.git -b lede ./package/gd772/luci-app-smartdns
 git clone https://github.com/pymumu/openwrt-smartdns.git ./feeds/packages/net/smartdns
-
-# echo '添加 KPR去广告'
+echo
+echo -e "\x1B[92m添加 KPR去广告\x1B[0m" ""
 git clone https://github.com/project-lede/luci-app-godproxy package/gd772/luci-app-godproxy
-
-# echo '微信推送'
+echo
+echo -e "\x1B[92m添加 微信推送\x1B[0m" ""
 git clone https://github.com/tty228/luci-app-serverchan.git ./package/gd772/luci-app-serverchan
-
-# echo '汉化实时监控'
+echo
+echo -e "\x1B[92m汉化 实时监控\x1B[0m" ""
 rm -rf ./package/lean/luci-app-netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata ./package/lean/luci-app-netdata
 rm -rf ./feeds/packages/admin/netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/netdata ./feeds/packages/admin/netdata
-
-# echo 'Dockerman'
+echo
+echo -e "\x1B[92m添加 Dockerman\x1B[0m" ""
 rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
-              
-# echo '修改插件名称'
+echo              
+
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
 sed -i 's/msgstr "Web 管理"/msgstr "Web"/g' package/lean/luci-app-webadmin/po/zh-cn/webadmin.po
@@ -152,13 +152,13 @@ sed -i 's/MWAN3 分流助手/分流助手/g' package/lean/luci-app-mwan3helper/p
 sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
 
 sed -i 's/实时流量监测/流量监测/g' package/lean/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
+echo -e "\x1B[92m插件重新命名 完成\x1B[0m" ""
 
-sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
-
-# echo '移动 网络共享 到 存储菜单'
+sed -i 's/invalid/#invalid/g' feeds/packages/net/samba4/files/smb.conf.template
+echo
+echo -e "\x1B[92m调整 网络共享 到 存储菜单\x1B[0m" ""
 sed -i 's/\"services\"/\"nas\"/g' package/lean/luci-app-samba4/luasrc/controller/samba4.lua
-
-# echo '移动 分流助手 到 网络菜单'
+echo -e "\x1B[92m调整 分流助手 到 网络菜单\x1B[0m" ""
 sed -i 's/\"services\"/\"network\"/g' package/lean/luci-app-mwan3helper/luasrc/controller/mwan3helper.lua
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/mwan3helper_status.htm > ./package/lean/luci-app-mwan3helper/luasrc/view/mwan3helper/mwan3helper_status.htm
 
@@ -169,12 +169,11 @@ curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/mwan3helper_statu
 #sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/view/dockerman/*.htm
 #sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
-# echo '调整 SSRP 到 GFW 菜单'
+echo -e "\x1B[92m调整 SSRP 到 GFW 菜单\x1B[0m" ""
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
-
-# echo '调整 PassWall 到 GFW 菜单'
+echo -e "\x1B[92m调整 Pass Wall 到 GFW 菜单\x1B[0m" ""
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
@@ -186,31 +185,28 @@ sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/p
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
-
-# echo '调整 HelloWorld 到 GFW 菜单'
+echo -e "\x1B[92m调整 Hello World 到 GFW 菜单\x1B[0m" ""
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/view/vssr/*.htm
-
-# echo '调整 OpenClash 到 GFW 菜单'
+echo -e "\x1B[92m调整 Open Clash 到 GFW 菜单\x1B[0m" ""
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/view/openclash/*.htm
-
-# echo '调整 V2ray服务器 到 GFW 菜单'
+echo -e "\x1B[92m调整 V2ray服务 到 GFW 菜单\x1B[0m" ""
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/*.lua
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
-# echo '更新 x86 编译日期'
-sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
-# echo '更新 N1 编译日期'
+echo -e "\x1B[92m更新 x86 编译日期\x1B[0m" ""
+sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+#echo -e "\x1B[92m更新 N1 编译日期\x1B[0m" ""
 #sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # echo '更换内核'
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
-
-# echo '更新feeds'
+echo
+echo -e "\x1B[92m更新 修改后的配置\x1B[0m" ""
 ./scripts/feeds update -i
