@@ -2,6 +2,16 @@
 # https://github.com/gd0772/AutoBuild-OpenWrt
 # common Module by gd772
 
+White="\033[0;37m"
+Yellow="\033[0;33m"
+Red="\033[1;91m"
+Blue="\033[0;94m"
+BLUEB="\033[1;94m"
+BCyan="\033[1;36m"
+Grey="\033[1;34m"
+Green="\033[0;92m"
+Purple="\033[1;95m"
+
 echo -e "\x1B[92m删除无用主题\x1B[0m" ""
 rm -rf ./feeds/freifunk/themes
 rm -rf ./package/lean/luci-theme-argon
