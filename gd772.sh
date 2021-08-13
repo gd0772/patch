@@ -200,7 +200,7 @@ sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/model/cbi/v2
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
 echo -e "\x1B[92m更新 x86 编译日期\x1B[0m" ""
-sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+sed -i "s/gd772 2021.08.08 Compile/gd772 $(TZ=UTC-8 date "+%Y.%m.%d") Compile/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 #echo -e "\x1B[92m更新 N1 编译日期\x1B[0m" ""
 #sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
