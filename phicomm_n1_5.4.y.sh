@@ -20,7 +20,7 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 echo
 TIME g "下载固件中 ... ..."
-wget "https://git.io/JRyHW" && mv JRyHW Armbian_Phicomm-N1-R21.8.6_5.4.138.tar.gz
+wget "https://git.io/JRyHW" && mv JRyHW Armbian_Phicomm-N1-R21.8.6_5.4.140.tar.gz
 TIME g "下载完成,解压中... ..."
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "解压完成,开始升级固件"
