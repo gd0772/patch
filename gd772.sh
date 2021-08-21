@@ -22,6 +22,7 @@ rm -rf ./feeds/packages/admin/netdata
 rm -rf ./package/lean/luci-app-netdata
 rm -rf ./package/lean/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
+rm -rf ./package/lean/luci-app-usb-printer
 echo -e "\x1B[92m添加 gd772常用 插件包\x1B[0m" ""
 rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd772
 echo -e "\x1B[92m插件包 添加完成\x1B[0m" ""
