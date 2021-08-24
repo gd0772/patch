@@ -178,7 +178,7 @@ sed -i 's/实时流量监测/流量监测/g' package/lean/luci-app-wrtbwmon/po/z
 
 TIME b "重命名 完成"
 
-sed -i 's/invalid/#invalid/g' feeds/packages/net/samba4/files/smb.conf.template
+sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
 
 echo
 TIME b "菜单调整 整理..."
