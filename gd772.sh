@@ -80,6 +80,9 @@ rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci
 echo
 TIME y "添加 应用过滤"
 git clone https://github.com/destan19/OpenAppFilter package/gd772/OpenAppFilter
+echo
+TIME y "添加 网络测速"
+git clone https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 echo              
 TIME b "插件 重命名..."
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
