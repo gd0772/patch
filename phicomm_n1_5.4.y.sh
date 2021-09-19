@@ -20,9 +20,9 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 echo
 TIME g "===========================================下载固件中(需科学上网,否则无法更新)================================================="
-wget "https://git.io/n1_5.4.143.img" && mv n1_5.4.143.img Armbian_Phicomm-N1-R21.8.6_5.4.143.tar.gz
+wget "https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate/Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.img.tar.gz"
 TIME g "=====================================================下载完成,解压中========================================================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "=====================================================解压完成,开始升级固件===================================================="
 chmod 755 update.sh
-./update.sh Armbian_Phicomm-N1-R21.8.6_5.4.143.img
+./update.sh Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.img
