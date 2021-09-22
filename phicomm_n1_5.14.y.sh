@@ -20,7 +20,7 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 echo
 TIME g "===========================================下载固件中(需科学上网,否则无法更新)================================================="
-wget https://gh.api.99988866.xyz/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate/Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.img.tar.gz
+wget https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate/Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.img.tar.gz
 TIME g "=====================================================下载完成,解压中========================================================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "=====================================================解压完成,开始升级固件===================================================="
