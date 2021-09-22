@@ -1,4 +1,4 @@
-	#/bin/bash
+#/bin/bash
 
 TIME() {
 [[ -z "$1" ]] && {
@@ -21,23 +21,23 @@ TIME() {
 	while :; do
 	TIME g "[1] 更新至 2021.09.21编译的 5.4.145 版本"
 	TIME g "[2] 更新至 2021.09.21编译的 5.14.6 版本"
-	TIME g "[3] 退出 本次在线更新 程序"
+	TIME g "[3] 退出 本次更新"
 	read -p " 输入您的选择： " CHOOSE
 	case $CHOOSE in
-		1)
-     bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
-			TIME y "[1] 在线更新 至 2021.09.21编译的 5.4.145 版本"
-		break
-		;;
-		2)
-     bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
-			TIME y "[2] 在线更新 至 2021.09.21编译的 5.14.6 版本"
-		break
-		;;
-		3)
-			exit 0
-			TIME r "您选择了退出编译程序"
-			exit 0
+	1)
+        bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
+	TIME y "[1] 在线更新 至 2021.09.21编译的 5.4.145 版本"
+	break
+	;;
+	2)
+        bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
+	TIME y "[2] 在线更新 至 2021.09.21编译的 5.14.6 版本"
+	break
+	;;
+	3)
+	exit 0
+	TIME r "您选择了 退出本次更新"
+	exit 0
 		break
     		;;
     		*)
