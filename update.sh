@@ -58,7 +58,6 @@ TIME() {
         TIME g "===============================下载完成,解压中==============================="
         tar -zxf *tar.gz && rm -f *.tar.gz
 	#pv *tar.gz |tar -zxf
-	rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
