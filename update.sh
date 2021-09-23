@@ -58,10 +58,11 @@ TIME() {
         TIME g "===============================下载完成,解压中==============================="
         #tar -zxvf *tar.gz && rm -f *.tar.gz
 	#判断 pv 命令是否存在
-	if [ ! -n "pv —v ];then
-        opkg update && opkg install pv
-	else
-        echo "pv 命令已存在"
+        if [ ! -e “/usr/bin/pv” ]
+        then
+        /usr/bin/pv -y install pv >/dev/null
+        else
+        “已经安装”
         fi
 	pv *tar.gz |tar -zxf - && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
