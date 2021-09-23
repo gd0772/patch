@@ -56,9 +56,9 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
-        #opkg update && opkg install pv
-	#pv *tar.gz |tar -zxf - && rm -f *.tar.gz
-	tar -zxvf *tar.gz --checkpoint=100 --checkpoint-action=dot --totals
+        #tar -zxvf *tar.gz && rm -f *.tar.gz
+	opkg update && opkg install pv
+	pv *tar.gz |tar -zxf - && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
