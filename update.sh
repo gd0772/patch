@@ -20,7 +20,7 @@ TIME() {
 
 	while :; do
 	TIME g "---------------------------------------------------"
-	TIME g "[1] 更新至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
+	TIME g "[1] 滚回至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
 	echo
 	TIME g "[2] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
 	echo
@@ -32,7 +32,7 @@ TIME() {
 	case $CHOOSE in
 	1)
 	echo
-	TIME y "[1] 更新至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
+	TIME y "[1] 滚回至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
