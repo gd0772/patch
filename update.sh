@@ -56,30 +56,9 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
-        #tar -zxvf *tar.gz && rm -f *.tar.gz
+        tar -zxvf *tar.gz && rm -f *.tar.gz
 	#判断 pv 命令是否存在
-        uname -r
-        pv --version
-        P=${1?" must specify package name."}
-        check_pv()
-        {
-	while (( $# > 0 ))
-	do
-	if ! pv -q $1 &> /dev/null;then
-	opkg update && opkg install pv $1 -y &>/dev/null
-	if	[ $? == 0 ];then
-	echo "$1 install is success!"
-	else
-	echo "$1 is not in the systerm Packages!"
-	fi
-	else 
-	echo "$1 is installed"
-	fi
-	shift
-	done
-	exit 0
-        }
-        tar -zxf - && rm -f *.tar.gz
+        #tar -zxf - && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
