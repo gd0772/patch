@@ -58,9 +58,9 @@ TIME() {
         TIME g "===============================下载完成,解压中==============================="
         #tar -zxvf *tar.gz && rm -f *.tar.gz
 	#判断 pv 命令是否存在
-	if [ ! -d "pv —v ];then
+	if [ ! -n "pv —v ];then
         opkg update && opkg install pv
-        else
+	else
         echo "pv 命令已存在"
         fi
 	pv *tar.gz |tar -zxf - && rm -f *.tar.gz
