@@ -19,28 +19,28 @@ TIME() {
 }
 
 	while :; do
-	TIME g "[1] 更新至 2021.09.21 编译的 5.4.145 版本"
+	TIME g "[1] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
 	echo
-	TIME g "[2] 更新至 2021.09.21 编译的 5.14.6 版本"
+	TIME g "[2] 更新至 2021.09.21 编译的 R21.9.18 5.14.6 版本"
 	echo
-	TIME g "[3] 退出 本次更新"
-	read -p " 输入您的选择： " CHOOSE
+	TIME g "[3] 说啥也不好使了，我要作钉子户 退出 且 放弃本次更新"
+	read -p " 请输入您的选择： " CHOOSE
 	case $CHOOSE in
 	1)
 	echo
-	TIME y "您选择了 [1] 更新至 2021.09.21 编译的 5.4.145 版本"
+	TIME y ""[1] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
         bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
 	break
 	;;
 	2)
 	echo
-	TIME y "您选择了 [2] 更新至 2021.09.21 编译的 5.14.6 版本"
+	TIME y "[2] 更新至 2021.09.21 编译的 R21.9.18 5.14.6 版本"
         bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
 	break
 	;;
 	3)
 	echo
-	TIME r "您选择了 退出本次更新"
+	TIME r "您选择了 作坚强的 钉子户 退出 且 放弃本次更新"
 	exit 0
 	break
     	;;
