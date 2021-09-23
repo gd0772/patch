@@ -86,10 +86,10 @@ TIME() {
         fi
         export pv
         if [ "${pv}" -eq "1" ]; then
-        exit
+        opkg update && opkg install pv
         fi
         if [ "${pv}" -eq "0" ]; then
-        opkg update && opkg install pv
+        exit
         fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
