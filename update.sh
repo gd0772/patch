@@ -24,9 +24,9 @@ TIME() {
 	echo
 	TIME g "[2] 更新至 2021.09.21 编译的 R21.9.18 5.14.6 版本"
 	echo
-	TIME g "[3] 说啥也不好使了 我要继续做钉子户 退出放弃本次更新"
+	TIME g "[0] 说啥也不好使了 我要继续做钉子户 退出放弃本次更新"
 	TIME g "---------------------------------------------------"
-	read -p " 请输入您的选择 然后 敲回车 确认： " CHOOSE
+	read -p " 请输入您的选择 然后 敲回车 确认： " [CHOOSE]
 	case $CHOOSE in
 	1)
 	echo
@@ -40,9 +40,9 @@ TIME() {
         bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
 	break
 	;;
-	3)
+	0)
 	echo
-	TIME r "您选择了 [3] 继续做 坚强的 钉子户 放弃本次更新 再见！"
+	TIME r "您选择了 [0] 继续做 坚强的 钉子户 放弃本次更新 再见！"
 	exit 0
 	break
     	;;
