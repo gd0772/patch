@@ -60,7 +60,7 @@ TIME() {
 	#判断 pv 命令是否存在
         uname -r
         pv --version
-        P=${1?" must specify package pv."}
+        P=${1?" must specify package name."}
         check_pv()
         {
 	while (( $# > 0 ))
