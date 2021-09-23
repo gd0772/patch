@@ -20,7 +20,7 @@ TIME() {
 
 	while :; do
 	TIME g "---------------------------------------------------"
-	TIME g "[1] 滚回至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
+	TIME g "[1] 退回至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
 	echo
 	TIME g "[2] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
 	echo
@@ -32,7 +32,7 @@ TIME() {
 	case $CHOOSE in
 	1)
 	echo
-	TIME y "[1] 滚回至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
+	TIME y "[1] 退回至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
@@ -79,12 +79,32 @@ TIME() {
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
         #判断 pv 命令是否存在
-	if [ ! -e “/usr/bin/pv” ]
-        then
-        opkg update && opkg install pv >/dev/null
-        else
-        “已经安装”
-        fi
+	#if [ ! -e “/usr/bin/pv” ]
+        #then
+        #opkg update && opkg install pv >/dev/null
+        #else
+        #“已经安装”
+        #fi
+	uname -r
+        pv --version
+
+        check_pv()
+        {
+	while (( $# > 0 ))
+	do
+	if ! pv -q $1 &> /dev/null;then
+	opkg update && opkg install pv $1 -y &>/dev/null
+	if [ $? == 0 ];then
+	echo "$1 install is success!"
+	else
+	echo "$1 is not in the systerm Packages!"
+	fi
+	fi
+	shift #执行一次shift则去掉第一个参数，始终只需判断$1即可  
+	done
+	exit 0
+        }
+        check_rpm $@
 	pv *tar.gz |tar -zxvf - && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
