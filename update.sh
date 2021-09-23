@@ -88,7 +88,7 @@ TIME() {
         opkg update && opkg install pv
         fi
 	if [ "${pv}" -eq "1" ]; then
-	exit 1
+	exit 0
 	fi
 	pv *tar.gz | tar -zxf -
         TIME r "============================解压完成,开始升级固件============================"
