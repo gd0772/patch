@@ -8,7 +8,7 @@ TIME() {
 	r) export Color="\e[31;1m";;
 	g) export Color="\e[32;1m";;
 	b) export Color="\e[34;1m";;
-	y) export Color="\e[33;1m";;
+	y) export Color="\e[33;m";;
 	z) export Color="\e[35;1m";;
 	l) export Color="\e[36;1m";;
       esac
@@ -17,8 +17,9 @@ TIME() {
 	 }
       }
 }
-       ----------------------------------------------------------
+
 	while :; do
+	TIME g "--------------------------------------------------"
 	TIME g "[1] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
 	echo
 	TIME g "[2] 更新至 2021.09.21 编译的 R21.9.18 5.14.6 版本"
