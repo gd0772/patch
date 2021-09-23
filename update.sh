@@ -81,16 +81,16 @@ TIME() {
         #判断 pv 命令是否存在
 	if [ ! -e “/usr/bin/pv” ]; then
         pv=1
-    else
+        else
         pv=0
-    fi
-    export pv
-    if [ "${pv}" -eq "1" ]; then
+        fi
+        export pv
+        if [ "${pv}" -eq "1" ]; then
         exit
-    fi
-    if [ "${pv}" -eq "0" ]; then
+        fi
+        if [ "${pv}" -eq "0" ]; then
         opkg update && opkg install pv
-    fi
+        fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
@@ -104,7 +104,7 @@ TIME() {
     	;;
     	*)
 	echo
-	TIME r "大哥：您输什么了什么 鸡巴？看清楚了！请输入正确的编号!"
+	TIME r "大哥：您输什么?什么 鸡巴？看清楚了！请输入正确的编号!"
 	;;
 	esac
 	done
