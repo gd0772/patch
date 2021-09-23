@@ -79,33 +79,12 @@ TIME() {
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
         #判断 pv 命令是否存在
-	#if [ ! -e “/usr/bin/pv” ]
-        #then
-        #opkg update && opkg install pv >/dev/null
-        #else
-        #“已经安装”
-        #fi
-	uname -r
-        pv --version
-
-        check_pv()
-        {
-	while (( $# > 0 ))
-	do
-	if ! pv -q $1 &> /dev/null;then
-	opkg update && opkg install pv $1 -y &>/dev/null
-	if [ $? == 0 ];then
-	echo "$1 install is success!"
-	else
-	echo "$1 is not in the systerm Packages!"
-	fi
-	fi
-	shift #执行一次shift则去掉第一个参数，始终只需判断$1即可  
-	done
-	exit 0
-        }
-        check_rpm $@
-	pv *tar.gz |tar -zxvf - && rm -f *.tar.gz
+	if [ ! -e “/usr/bin/pv” ]
+        then
+        opkg update && opkg install pv >/dev/null
+        else
+        “已经安装”
+        fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
