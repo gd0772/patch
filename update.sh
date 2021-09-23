@@ -79,12 +79,18 @@ TIME() {
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
         #判断 pv 命令是否存在
-	if [ ! -e “/usr/bin/pv” ]
-        then
-        opkg update && opkg install pv >/dev/null
-        else
-        “已经安装”
-        fi
+	if [ ! -e “/usr/bin/pv” ]; then
+        pv=1
+    else
+        pv=0
+    fi
+    export pv
+    if [ "${pv}" -eq "1" ]; then
+        exit
+    fi
+    if [ "${pv}" -eq "0" ]; then
+        opkg update && opkg install pv
+    fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
