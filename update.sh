@@ -84,10 +84,11 @@ TIME() {
         else
         pv=0
         fi
-        export pv
-        if [ "${pv}" -eq "1" ]; then
+        if [ "${pv}" -eq "0" ]; then
         opkg update && opkg install pv
         fi
+	if [ "${pv}" -eq "1" ]; then
+	export pv
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
