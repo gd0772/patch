@@ -95,10 +95,10 @@ TIME() {
         else
         pv=0 #等于 0 时表示存在
         fi
-        if [ "${pv}" -eq "1" ]; then #判断如果 pv命令 不存在，则安装 pe命令
+        if [ "${pv}" -eq "0" ]; then #判断如果 pv命令 不存在，则安装 pe命令
         opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz
         fi
-	if [ "${pv}" -eq "0" ]; then #判断如果 pv命令 存在，则跳过安装 pe命令
+	if [ "${pv}" -eq "1" ]; then #判断如果 pv命令 存在，则跳过安装 pe命令
 	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
 	fi
         TIME r "============================解压完成,开始升级固件============================"
