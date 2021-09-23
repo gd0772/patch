@@ -57,7 +57,8 @@ TIME() {
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
         #opkg update && opkg install pv
-	pv *tar.gz |tar -zxf - && rm -f *.tar.gz
+	#pv *tar.gz |tar -zxf - && rm -f *.tar.gz
+	tar -zxvf *tar.gz --checkpoint=100 --checkpoint-action=dot --totals
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
