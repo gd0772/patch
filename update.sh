@@ -28,7 +28,7 @@ TIME() {
 	case $CHOOSE in
 	1)
 	echo
-	TIME y ""[1] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
+	TIME y "[1] 更新至 2021.09.21 编译的 R21.9.18 5.4.145 版本"
         bash <(curl -s -S -L https://git.io/phicomm_n1_5.4.y.sh)
 	break
 	;;
@@ -45,6 +45,7 @@ TIME() {
 	break
     	;;
     	*)
+	echo
 	TIME r "警告：输入错误,请输入正确的编号!"
 	;;
 	esac
