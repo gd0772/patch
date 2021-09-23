@@ -86,9 +86,10 @@ TIME() {
         fi
         if [ "${pv}" -eq "1" ]; then
         opkg update && opkg install pv
+	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
         fi
 	if [ "${pv}" -eq "0" ]; then
-	pv *tar.gz | tar -zxf -
+	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
 	fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
