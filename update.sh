@@ -38,6 +38,7 @@ TIME() {
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.8.6_5.4.143.tar.gz
         img=Armbian_Phicomm-N1-R21.8.6_5.4.143.img
+	echo
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
@@ -55,6 +56,7 @@ TIME() {
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.img.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.img
+	echo
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
@@ -72,6 +74,7 @@ TIME() {
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.img
+	echo
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
