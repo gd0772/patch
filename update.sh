@@ -60,8 +60,7 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
-	pv=/usr/bin/pv
-	if [ ! -f "$pv” ]; then
+	if [ ! -f "/usr/bin/pv” ]; then
         opkg update && opkg install pv
 	else
 	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
