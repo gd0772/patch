@@ -61,17 +61,10 @@ TIME() {
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
         #检查 pv命令 是否存在
-	if [ ! -e “/usr/bin/pv” ]; then
-        pv=1 #等于 1 时表示不存在
-        else
-        pv=0 #等于 0 时表示存在
+	if [ ! -d “/usr/bin/pv” ]; then
+        opkg update && opkg install pv
         fi
-        if [ "${pv}" -eq "1" ]; then #判断如果 pv命令 不存在，则安装 pe命令
-        opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz
-        fi
-	if [ "${pv}" -eq "0" ]; then #判断如果 pv命令 存在，则跳过安装 pe命令
-	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
-	fi
+        pv *tar.gz | tar -zxf - && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
