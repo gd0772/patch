@@ -62,7 +62,7 @@ TIME() {
         TIME g "===============================下载完成,解压中==============================="
         #检查 pv文件 是否存在
 	pv=/usr/bin/pv
-	if [ ! -d "$pv” ]; then
+	if [ ! -f "$pv” ]; then
         opkg update && opkg install pv
 	else
 	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
