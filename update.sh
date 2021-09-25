@@ -20,13 +20,13 @@ TIME() {
 
 	while :; do
 	TIME g "---------------------------------------------------"
-	TIME g "[1] 回滚至 2021.09.25 编译的 R21.8.6 5.4.134 版本"
+	TIME g "[1] 回滚至 2021.09.26 编译的 R21.8.6 5.4.134 版本"
 	echo
 	TIME g "[2] 回滚至 2021.09.01 编译的 R21.8.6 5.4.143 版本"
 	echo
-	TIME g "[3] 更新至 2021.09.25 编译的 R21.9.18 5.4.148 版本"
+	TIME g "[3] 更新至 2021.09.26 编译的 R21.9.18 5.4.148 版本"
 	echo
-	TIME g "[4] 更新至 2021.09.25 编译的 R21.9.18 5.10.68 版本"
+	TIME g "[4] 更新至 2021.09.26 编译的 R21.9.18 5.10.68 版本"
 	echo
 	TIME g "[5] 更新至 2021.09.26 编译的 R21.9.18 5.14.7 版本"
 	echo
@@ -36,7 +36,7 @@ TIME() {
 	case $CHOOSE in
 	1)
 	echo
-	TIME y "[1] 降级至 2021.09.25 编译的 R21.9.18 5.4.134 版本"
+	TIME y "[1] 降级至 2021.09.26 编译的 R21.9.18 5.4.134 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
@@ -72,7 +72,7 @@ TIME() {
 	;;
 	3)
 	echo
-	TIME y "[3] 更新至 2021.09.25 编译的 R21.9.18 5.4.148 版本"
+	TIME y "[3] 更新至 2021.09.26 编译的 R21.9.18 5.4.148 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
@@ -90,7 +90,7 @@ TIME() {
 	;;
 	4)
 	echo
-	TIME y "[4] 更新至 2021.09.25 编译的 R21.9.18 5.10.68 版本"
+	TIME y "[4] 更新至 2021.09.26 编译的 R21.9.18 5.10.68 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
