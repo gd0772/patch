@@ -36,7 +36,7 @@ TIME() {
 	case $CHOOSE in
 	1)
 	echo
-	TIME y "[1] 降级至 2021.09.25 编译的 R21.8.6 5.4.134 版本"
+	TIME y "[1] 升级至 2021.09.25 编译的 R21.9.18 5.4.134 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
@@ -54,7 +54,7 @@ TIME() {
 	;;
 	2)
 	echo
-	TIME y "[1] 降级至 2021.09.25 编译的 R21.8.6 5.4.143 版本"
+	TIME y "[2] 降级至 2021.09.25 编译的 R21.8.6 5.4.143 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
