@@ -76,7 +76,7 @@ TIME() {
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.img.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.4.145.img
 	echo
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
@@ -94,7 +94,7 @@ TIME() {
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.img.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.img
 	echo
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
@@ -123,7 +123,7 @@ TIME() {
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.img.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.14.6.img
 	echo
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
