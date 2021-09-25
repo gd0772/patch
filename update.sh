@@ -61,9 +61,9 @@ TIME() {
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
 	if [ ! -f "/usr/bin/pv” ]; then
-        opkg update && opkg install pv
+        pv *tar.gz | tar -zxf - && rm -f *.tar.gz
 	else
-	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
+	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz
         fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
