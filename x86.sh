@@ -35,12 +35,9 @@ rm -rf ./package/lean/luci-app-usb-printer
 echo
 TIME b "修改 默认IP为 192.168.123.2"
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
-#TIME b "修改 主机名为 N1"
-#sed -i "s/'OpenWrt'/'N1'/g" package/base-files/files/bin/config_generate
 TIME b "修改 系统文件..."
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
-#curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/n1_index.htm > ./feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 TIME b "系统文件 修改完成"
 #echo
 #TIME y "添加 gd772 Package"
@@ -229,8 +226,6 @@ TIME l "菜单调理 完成"
 echo
 TIME y "更新 x86固件 编译日期"
 sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
-#TIME z "更新 N1固件 编译日期"
-#sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # echo 
 #TIME y "更换内核"
