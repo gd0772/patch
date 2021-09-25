@@ -60,11 +60,13 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
-        #检查 pv命令 是否存在
-	if [ ! -d “/usr/bin/pv” ]; then
+        #检查 pv文件 是否存在
+	pv=/usr/bin/pv
+	if [ ! -d "$pv” ]; then
         opkg update && opkg install pv
+	else
+	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
         fi
-        pv *tar.gz | tar -zxf - && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
