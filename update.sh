@@ -42,7 +42,12 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
-        tar -zxvf *tar.gz && rm -f *.tar.gz
+	#判断 pv 命令是否存在
+	if [ -f "/usr/bin/pv" ]; then
+        pv *tar.gz | tar -zxf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
+	else
+	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
+        fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
@@ -60,10 +65,11 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
+	#判断 pv 命令是否存在
 	if [ -f "/usr/bin/pv" ]; then
-        pv *tar.gz | tar -zxf - && rm -f *.tar.gz
+        pv *tar.gz | tar -zxf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
 	else
-	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz
+	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
         fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
@@ -82,18 +88,12 @@ TIME() {
 	TIME g "=====================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
         TIME g "===============================下载完成,解压中==============================="
-        #检查 pv命令 是否存在
-	if [ ! -e “/usr/bin/pv” ]; then
-        pv=1 #等于 1 时表示不存在
-        else
-        pv=0 #等于 0 时表示存在
+	#判断 pv 命令是否存在
+	if [ -f "/usr/bin/pv" ]; then
+        pv *tar.gz | tar -zxf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
+	else
+	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
         fi
-        if [ "${pv}" -eq "1" ]; then #判断如果 pv命令 不存在，则安装 pe命令
-        opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz
-        fi
-	if [ "${pv}" -eq "0" ]; then #判断如果 pv命令 存在，则跳过安装 pe命令
-	pv *tar.gz | tar -zxf - && rm -f *.tar.gz
-	fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
         bash update.sh $img
