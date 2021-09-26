@@ -44,9 +44,9 @@ TIME() {
         TIME g "===============================下载完成,解压中==============================="
 	#判断 pv 命令是否存在
 	if [ -f "/usr/bin/pv" ]; then
-        pv *tar.gz | tar -zxf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
+        pv *tar.gz | tar -zxvf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
 	else
-	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
+	opkg update && opkg install pv && pv *tar.gz | tar -zxvf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
         fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
@@ -67,9 +67,9 @@ TIME() {
         TIME g "===============================下载完成,解压中==============================="
 	#判断 pv 命令是否存在
 	if [ -f "/usr/bin/pv" ]; then
-        pv *tar.gz | tar -zxf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
+        pv *tar.gz | tar -zxvf - && rm -f *.tar.gz #命令存在则跳过命令的安装，直接执行解压操作！
 	else
-	opkg update && opkg install pv && pv *tar.gz | tar -zxf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
+	opkg update && opkg install pv && pv *tar.gz | tar -zxvf - && rm -f *.tar.gz  #命令不存在则安装命令，安装完成后再执行解压操作！
         fi
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
