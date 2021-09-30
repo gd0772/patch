@@ -40,7 +40,7 @@ TIME() {
 	TIME y "[1] 回滚至 2021.09.26 编译的 R21.9.18 5.4.148 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.4.148.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.4.148.img
 	echo
@@ -64,7 +64,7 @@ TIME() {
 	TIME y "[2] 回滚至 2021.09.26 编译的 R21.9.18 5.10.68 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.img
 	echo
@@ -88,7 +88,7 @@ TIME() {
 	TIME y "[3] 回滚至 2021.09.26 编译的 R21.9.18 5.14.7 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.14.7.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.14.7.img
 	echo
@@ -106,7 +106,7 @@ TIME() {
 	TIME y "[4] 更新至 2021.10.01 编译的 R21.10.1 5.4.150 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.10.1_5.4.150.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.10.1_5.4.150.img
 	echo
@@ -124,7 +124,7 @@ TIME() {
 	TIME y "[5] 更新至 2021.10.01 编译的 R21.10.1 5.10.70 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.10.1_5.10.70.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.10.1_5.10.70.img
 	echo
@@ -142,7 +142,7 @@ TIME() {
 	TIME y "[6] 更新至 2021.10.01 编译的 R21.10.1 5.14.9 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.10.1_5.14.9.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.10.1_5.14.9.img
 	echo
