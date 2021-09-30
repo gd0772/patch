@@ -20,11 +20,11 @@ TIME() {
 
 	while :; do
 	TIME g "---------------------------------------------------"
-	TIME g "[1] 回滚至 2021.09.26 编译的 R21.9.18 5.4.148 版本"
+	TIME y "[1] 回滚至 2021.09.26 编译的 R21.9.18 5.4.148 版本"
 	echo
-	TIME g "[2] 回滚至 2021.09.26 编译的 R21.9.18 5.10.68 版本"
+	TIME y "[2] 回滚至 2021.09.26 编译的 R21.9.18 5.10.68 版本"
 	echo
-	TIME g "[3] 回滚至 2021.09.26 编译的 R21.9.18 5.14.7 版本"
+	TIME y "[3] 回滚至 2021.09.26 编译的 R21.9.18 5.14.7 版本"
 	echo
 	TIME g "[4] 更新至 2021.10.01 编译的 R21.10.1 5.4.150 版本"
 	echo
@@ -40,7 +40,7 @@ TIME() {
 	TIME y "[1] 回滚至 2021.09.26 编译的 R21.9.18 5.4.148 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.4.148.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.4.148.img
 	echo
@@ -64,7 +64,7 @@ TIME() {
 	TIME y "[2] 回滚至 2021.09.26 编译的 R21.9.18 5.10.68 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.10.68.img
 	echo
@@ -88,7 +88,7 @@ TIME() {
 	TIME y "[3] 回滚至 2021.09.26 编译的 R21.9.18 5.14.7 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.9.18_5.14.7.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.9.18_5.14.7.img
 	echo
@@ -106,13 +106,13 @@ TIME() {
 	TIME y "[4] 更新至 2021.10.01 编译的 R21.10.1 5.4.150 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.10.1_5.4.150.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.10.1_5.4.150.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
-        TIME g "===============================下载完成,解压中=============================="
+        TIME g "=================================下载完成,解压中=============================="
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
@@ -124,13 +124,13 @@ TIME() {
 	TIME y "[5] 更新至 2021.10.01 编译的 R21.10.1 5.10.70 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.10.1_5.10.70.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.10.1_5.10.70.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
-        TIME g "===============================下载完成,解压中=============================="
+        TIME g "=================================下载完成,解压中=============================="
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
@@ -142,13 +142,13 @@ TIME() {
 	TIME y "[6] 更新至 2021.10.01 编译的 R21.10.1 5.14.9 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
-        url=https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        url=https://ghproxy.com/ https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.10.1_5.14.9.tar.gz
         img=Armbian_Phicomm-N1_OP-R21.10.1_5.14.9.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)======================"
         curl -LO $url/$Firmware
-        TIME g "===============================下载完成,解压中=============================="
+        TIME g "=================================下载完成,解压中=============================="
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
