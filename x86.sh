@@ -225,7 +225,7 @@ sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_s
 TIME l "菜单调理 完成"
 echo
 TIME y "更新 x86固件 编译日期"
-sed -i "s/2021.08.08/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
+sed -i "s/2021.10.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
 
 # echo 
 #TIME y "更换内核"
