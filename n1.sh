@@ -176,7 +176,7 @@ sed -i 's/实时流量监测/流量监测/g' package/lean/luci-app-wrtbwmon/po/z
 
 TIME b "重命名 完成"
 
-#sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
+sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
 echo
 TIME l "调整 网络共享 到 存储菜单"
 sed -i 's/\"services\"/\"nas\"/g' package/lean/luci-app-samba4/luasrc/controller/samba4.lua
