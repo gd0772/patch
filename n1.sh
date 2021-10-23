@@ -140,6 +140,8 @@ sed -i 's/msgstr "FTP 服务器"/msgstr "FTP 服务"/g' package/lean/luci-app-vs
 
 sed -i 's/Rclone/网盘挂载/g' package/lean/luci-app-rclone/luasrc/controller/rclone.lua
 
+sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/lean/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
+
 sed -i 's/msgstr "Aria2"/msgstr "Aria2下载"/g' feeds/luci/applications/luci-app-aria2/po/zh-cn/aria2.po
 
 sed -i 's/_("qBittorrent")/_("BT下载")/g' package/lean/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
@@ -223,6 +225,10 @@ TIME l "调整 V2ray服务 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/*.lua
 sed -i 's/services/vpn/g' package/lean/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
+TIME b "调整 阿里云盘 到 存储 菜单"
+sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/controller/*.lua
+sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/model/cbi/aliyundrive-webdav/*.lua
+sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/view/aliyundrive-webdav/*.htm
 TIME l "菜单调整完成"
 echo
 TIME z "更新 N1固件 编译日期"
