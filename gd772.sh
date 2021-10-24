@@ -241,6 +241,9 @@ sed -i "s/2021.10.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
 echo
+TIME g "自定义文件修复权限"
+chmod -R 755 package/gd772
+echo
 TIME g "更新配置..."
 ./scripts/feeds update -i
 TIME g "配置更新完成"
