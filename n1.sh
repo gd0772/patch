@@ -40,6 +40,7 @@ sed -i "s/'OpenWrt'/'N1'/g" package/base-files/files/bin/config_generate
 TIME b "修改 系统文件..."
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/n1_index.htm > ./feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/udpxy.lua > ./feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
 TIME b "系统文件 修改完成"
 #echo
 TIME y "添加 gd772 Package"
