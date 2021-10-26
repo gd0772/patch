@@ -40,9 +40,9 @@ curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-setti
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/udpxy.lua > ./feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
 TIME b "系统文件 修改完成"
-#echo
-#TIME y "添加 gd772 Package"
-#rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd772
+echo
+TIME y "添加 gd772 Package"
+rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd772
 echo
 TIME y "添加 SSR Plus+"
 git clone https://github.com/fw876/helloworld package/gd772/ssrplus
