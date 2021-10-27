@@ -12,6 +12,12 @@ uci commit system
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
+uci set turboacc.config.sfe_flow='0'
+uci set turboacc.config.hw_flow='0'
+uci set turboacc.config.sw_flow='0'
+uci set turboacc.config.fullcone_nat='1'
+uci commit turboacc
+
 uci set vsftpd.@listen[0].enable4='0'
 uci commit vsftpd
 
