@@ -39,7 +39,6 @@ TIME() {
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.4.160.tar.gz
-        img=Armbian_Phicomm-N1_OP-R21.11.11_5.4.160.img
 	echo
 	TIME g "=======================下载固件中(需科学上网,否则无法更新)===================="
         curl -LO $url/$Firmware
@@ -53,7 +52,7 @@ TIME() {
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
-        bash update.sh $img
+        bash update.sh *.img
 	break
 	;;
 	2)
@@ -63,7 +62,6 @@ TIME() {
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.14.20.tar.gz
-        img=Armbian_Phicomm-N1_OP-R21.11.11_5.14.20.img
 	echo
 	TIME g "=======================下载固件中(需科学上网,否则无法更新)===================="
         curl -LO $url/$Firmware
@@ -77,7 +75,7 @@ TIME() {
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "============================解压完成,开始升级固件============================"
         chmod 755 update.sh
-        bash update.sh $img
+        bash update.sh *.img
 	break
 	;;
 	3)
@@ -87,7 +85,6 @@ TIME() {
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.4.158.tar.gz
-        img=Armbian_Phicomm-N1_OP-R21.11.11_5.4.158.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)==================="
         curl -LO $url/$Firmware
@@ -95,7 +92,7 @@ TIME() {
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "=============================解压完成,开始升级固件============================"
         chmod 755 update.sh
-        bash update.sh $img
+        bash update.sh *.img
 	break
 	;;
 	4)
@@ -105,7 +102,6 @@ TIME() {
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.14.17.tar.gz
-        img=Armbian_Phicomm-N1_OP-R21.11.11_5.14.17.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)====================="
         curl -LO $url/$Firmware
@@ -113,7 +109,7 @@ TIME() {
 	tar -zxvf *tar.gz && rm -f *.tar.gz
         TIME r "=============================解压完成,开始升级固件============================"
         chmod 755 update.sh
-        bash update.sh $img
+        bash update.sh *.img
 	break
 	;;
 	0)
