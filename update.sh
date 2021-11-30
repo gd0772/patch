@@ -28,7 +28,7 @@ TIME() {
 	echo
 	TIME y "[4] 回滚至 2021.11.11 编译的 R21.11.11 5.14.17 版本"
 	echo
-	TIME y "[5] 目前为止 内核为 5.4.134 的版本 内存释放控制得很好"
+	TIME r "[5] 目前为止 内核为 5.4.134 内存释放控制得很好的版本"
 	echo
 	TIME g "[0] 说啥也不好使了，继续做【钉子户】退出 本次更新"
 	TIME g "-------------------------------------------------"
@@ -120,7 +120,7 @@ TIME() {
 	;;
 	5)
 	echo
-	TIME y "[5] 矿长的最爱 5.4.134 目前为止 内存释放控制得很好的版本"
+	TIME y "[5] 目前为止 内核为 5.4.134 内存释放控制得很好的版本,玩多个docker容器的推荐版"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
