@@ -28,6 +28,8 @@ TIME() {
 	echo
 	TIME y "[4] 回滚至 2021.11.11 编译的 R21.11.11 5.14.17 版本"
 	echo
+	TIME y "[5] 矿长的最爱 5.4.134 据说 内存释放、控制的不错的版本"
+	echo
 	TIME g "[0] 说啥也不好使了，继续做【钉子户】退出 本次更新"
 	TIME g "-------------------------------------------------"
 	read -p " 请输入 序号 然后 敲回车确认： " CHOOSE
@@ -106,6 +108,24 @@ TIME() {
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.14.17.tar.gz
 	img=Armbian_Phicomm-N1_OP-R21.11.11_5.14.17.img
+	echo
+	TIME g "======================下载固件中(需科学上网,否则无法更新)====================="
+        curl -LO $url/$Firmware
+        TIME g "=================================下载完成,解压中============================="
+	tar -zxvf *tar.gz && rm -f *.tar.gz
+        TIME r "=============================解压完成,开始升级固件============================"
+        chmod 755 update.sh
+        bash update.sh $img
+	break
+	;;
+	5)
+	echo
+	TIME y "[5] 矿长的最爱 5.4.134 据说 内存释放、控制的不错的版本"
+        cd /mnt/mmcblk2p4
+        rm -rf *.sh Armbian_*
+        url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.4.134.tar.gz
+	img=Armbian_Phicomm-N1_OP-R21.12.1_5.4.134.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)====================="
         curl -LO $url/$Firmware
