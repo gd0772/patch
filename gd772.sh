@@ -32,7 +32,7 @@ rm -rf ./package/lean/luci-app-netdata
 rm -rf ./package/lean/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 rm -rf ./package/lean/luci-app-usb-printer
-rm -rf ./package/lean/lisaac/luci-app-dockerman
+rm -rf ./package/lean/luci-app-dockerman
 
 echo
 TIME b "修改 默认IP为 192.168.123.2"
