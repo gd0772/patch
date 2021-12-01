@@ -24,7 +24,7 @@ TIME() {
 	echo
 	TIME g "[2] 更新至 2021.12.1 编译的 R21.12.1 5.10.82 版本"
 	echo
-	TIME y "[3] 回滚至 2021.11.11 编译的 R21.11.11 5.4.158 版本"
+	TIME y "[3] 回滚至 2021.11.11 编译的 R21.11.11 5.4.160 版本"
 	echo
 	TIME y "[4] 回滚至 2021.11.11 编译的 R21.11.11 5.14.17 版本"
 	echo
@@ -89,7 +89,7 @@ TIME() {
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
         Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.4.160.tar.gz
-	img=Armbian_Phicomm-N1_OP-R21.11.11_5.4.158.img
+	img=Armbian_Phicomm-N1_OP-R21.11.11_5.4.160.img
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)==================="
         curl -LO $url/$Firmware
