@@ -35,8 +35,8 @@ rm -rf ./package/lean/luci-app-usb-printer
 rm -rf ./package/lean/luci-app-dockerman
 
 echo
-TIME b "修改 默认IP为 192.168.123.2"
-sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
+TIME b "修改 默认IP为 192.168.123.254"
+sed -i "s/192.168.1.1/192.168.123.254/g" package/base-files/files/bin/config_generate
 TIME b "修改 系统文件..."
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
@@ -74,9 +74,9 @@ echo
 TIME y "汉化 实时监控"
 rm -rf ./package/lean/luci-app-netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata ./package/lean/luci-app-netdata
 rm -rf ./feeds/packages/admin/netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/netdata ./feeds/packages/admin/netdata
-echo
-TIME y "添加 Dockerman"
-rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
+#echo
+#TIME y "添加 Dockerman"
+#rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
 echo
 TIME y "添加 应用过滤"
 git clone https://github.com/destan19/OpenAppFilter package/gd772/OpenAppFilter
