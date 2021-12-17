@@ -1,5 +1,5 @@
 #/bin/bash
-
+# by gd772
 TIME() {
 [[ -z "$1" ]] && {
 	echo -ne " "
