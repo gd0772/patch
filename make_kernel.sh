@@ -1,5 +1,6 @@
 #/bin/bash
-# by gd772
+# gd772's Armbian kernel Compile script
+
 TIME() {
 [[ -z "$1" ]] && {
 	echo -ne " "
