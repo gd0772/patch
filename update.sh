@@ -20,13 +20,13 @@ TIME() {
 
 	while :; do
 	TIME g "--------------------------------------------------"
-	TIME g "[1] 更新至 2021.12.19 编译的 R21.12.1 5.4.167 版本"
+	TIME g "[1] 更新至 2021.12.28 编译的 R21.12.1 5.4.168 版本"
 	echo
-	TIME g "[2] 更新至 2021.12.19 编译的 R21.12.1 5.10.87 版本"
+	TIME g "[2] 更新至 2021.12.28 编译的 R21.12.1 5.10.88 版本"
 	#echo
-	#TIME y "[3] 回滚至 2021.11.11 编译的 R21.11.11 5.4.160 版本"
+	#TIME y "[3] 回滚至 2021.12.19 编译的 R21.12.1 5.4.167 版本"
 	#echo
-	#TIME y "[4] 回滚至 2021.11.11 编译的 R21.11.11 5.14.17 版本"
+	#TIME y "[4] 回滚至 2021.12.19 编译的 R21.12.1 5.10.87 版本"
 	echo
 	TIME r "[5] 目前为止 内核为 5.4.134 内存释放控制得很好的版本"
 	echo
@@ -36,11 +36,11 @@ TIME() {
 	case $CHOOSE in
 	1)
 	echo
-	TIME g "[1] 更新至 2021.12.10 编译的 R21.12.1 5.4.167 版本 版本"
+	TIME g "[1] 更新至 2021.12.28 编译的 R21.12.1 5.4.168 版本 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.4.167.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.4.168.tar.gz
 	echo
 	TIME g "=======================下载固件中(需科学上网,否则无法更新)===================="
         curl -LO $url/$Firmware
@@ -59,11 +59,11 @@ TIME() {
 	;;
 	2)
 	echo
-	TIME g "[2] 更新至 2021.12.18 编译的 R21.12.1 5.10.87 版本"
+	TIME g "[2] 更新至 2021.12.28 编译的 R21.12.1 5.10.88 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.10.87.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.10.88.tar.gz
 	echo
 	TIME g "=======================下载固件中(需科学上网,否则无法更新)===================="
         curl -LO $url/$Firmware
@@ -82,11 +82,11 @@ TIME() {
 	;;
 	3)
 	echo
-	TIME g "[3] 回滚至 2021.11.20 编译的 R21.11.11 5.4.160 版本"
+	TIME g "[3] 回滚至 2021.12.19 编译的 R21.12.1 5.4.167 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.4.160.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.4.167.tar.gz
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)==================="
         curl -LO $url/$Firmware
@@ -99,11 +99,11 @@ TIME() {
 	;;
 	4)
 	echo
-	TIME y "[4] 回滚至 2021.11.20 编译的 R21.11.11 5.14.20 版本"
+	TIME y "[4] 回滚至 2021.12.19 编译的 R21.12.1 5.10.87 版本"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.11.11_5.14.20.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.10.87.tar.gz
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)====================="
         curl -LO $url/$Firmware
