@@ -237,7 +237,7 @@ sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/view/a
 TIME l "菜单调理 完成"
 echo
 TIME y "更新固件 编译日期"
-sed -i "s/2021.10.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
+sed -i "s/2021.10.01/$(TZ=UTC-8 date "+%Y.%m.%d") 元旦新年版/g" package/lean/autocore/files/x86/index.htm
 
 # echo 
 #TIME y "更换内核"
