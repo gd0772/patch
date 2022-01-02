@@ -120,7 +120,7 @@ TIME() {
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
-        Firmware=Armbian_Phicomm-N1_OP-R21.12.1_5.4.134.tar.gz
+        Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.4.134.tar.gz
 	echo
 	TIME g "======================下载固件中(需科学上网,否则无法更新)====================="
         curl -LO $url/$Firmware
