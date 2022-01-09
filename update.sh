@@ -28,7 +28,7 @@ TIME() {
 	echo
 	TIME y "[4] 回滚至 2021.12.28 编译的 R21.12.1 5.10.88 版本"
 	echo
-	TIME r "[5] 内核为 5.4.134 内存控制较好 玩多个 Docker 推荐此版"
+	TIME r "[6] 内核为 5.4.134 内存控制较好 玩多个 Docker 推荐此版"
 	echo
 	TIME g "[0] 说啥也不好使了，继续做【钉子户】退出 本次更新"
 	TIME g "-------------------------------------------------"
@@ -116,7 +116,25 @@ TIME() {
 	;;
 	5)
 	echo
-	TIME y "[5] 目前为止 内核为 5.4.134 内存释放控制得较好的版本,玩多个docker的推荐此版"
+	TIME g "[5] 更新至 2022.1.1 编译的 R22.1.1 5.15.12 元旦新年版"
+        cd /mnt/mmcblk2p4
+        rm -rf *.sh Armbian_*
+        url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
+        Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.15.12.tar.gz
+	AutoUpdate=https://mirror.ghproxy.com/https://raw.githubusercontent.com/gd0772/n1_update/main/update.sh
+	echo
+	TIME g "=================================下载固件中==================================="
+        curl -LO $url/$Firmware && curl -LO $AutoUpdate
+        TIME g "===============================下载完成,解压中================================"
+	tar -zxvf *tar.gz && rm -f *.tar.gz
+        TIME r "===============================解压完成,开始升级固件=========================="
+        chmod 755 update.sh
+        bash update.sh *.img
+	break
+	;;
+	6)
+	echo
+	TIME y "[6] 目前为止 内核为 5.4.134 内存释放控制得较好的版本,玩多个docker的推荐此版"
         cd /mnt/mmcblk2p4
         rm -rf *.sh Armbian_*
         url=https://mirror.ghproxy.com/https://github.com/gd0772/AutoBuild-OpenWrt/releases/download/AutoUpdate
