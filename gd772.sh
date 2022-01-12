@@ -243,6 +243,9 @@ echo
 TIME y "更换内核"
 sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.4/g' ./target/linux/x86/Makefile
 sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
+echo 
+TIME y "更换内核版本"
+sed -i 's/.162/.170/g' ./include/kernel-version.mk
 echo
 TIME g "自定义文件修复权限"
 chmod -R 755 package/gd772
