@@ -128,7 +128,7 @@ break
 ;;
 5)
 echo
-TIME r "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
+TIME g "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
 cd /mnt/mmcblk2p4
 url=https://pan.gd772.com/d/update
 files=docker_20.10.12-2_N1.tar.gz
@@ -137,10 +137,11 @@ TIME g "============================== 下载 Docker ===========================
 curl -LO $url/$files
 TIME g "=================================下载完成,解压中============================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
-TIME r "============================= 解压完成,开始安装 ============================="
+TIME g "============================= 解压完成,开始安装 ============================="
 chmod 755 *.ipk
-opkg install *.ipk
-TIME r "============================== Docker安装完成 =============================="
+opkg install *.ipk && /etc/init.d/dockerd start 
+rm -r *.ipk && rm -r /etc/config/dockerd-opkg
+TIME g "============================= Docker安装完成 ==============================="
 break
 ;;
 0)
