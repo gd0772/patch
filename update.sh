@@ -28,6 +28,8 @@ TIME g "[3] 更新至 2022.1.21 编译的 R22.1.1 5.15.15"
 echo
 TIME r "[4] 内核为 5.4.134 玩 Docker 选择此版"
 echo
+TIME r "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
+echo
 TIME g "[0] 说啥也不好使了，继续做【钉子户】退出 本次更新"
 TIME g "-------------------------------------------------"
 read -p " 请输入 序号 然后 敲回车确认： " CHOOSE
@@ -122,6 +124,23 @@ tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "=============================解压完成,开始升级固件============================"
 chmod 755 update.sh
 bash update.sh *.img
+break
+;;
+5)
+echo
+TIME r "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
+cd /mnt/mmcblk2p4
+url=https://pan.gd772.com/d/update
+files=docker_20.10.12-2_N1.tar.gz
+echo
+TIME g "============================== 下载 Docker ================================="
+curl -LO $url/$files
+TIME g "=================================下载完成,解压中============================="
+tar -zxvf *tar.gz && rm -f *.tar.gz
+TIME r "============================= 解压完成,开始安装 ============================="
+chmod 755 *.ipk
+opkg install *.ipk
+TIME r "============================== Docker安装完成 =============================="
 break
 ;;
 0)
