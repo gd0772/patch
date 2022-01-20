@@ -30,7 +30,7 @@ TIME r "[4] 内核为 5.4.134 玩 Docker 选择此版"
 echo
 TIME g "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
 echo
-TIME g "[0] 说啥也不好使了，继续做【钉子户】退出 本次更新"
+TIME g "[0] 说啥也不好使了，继续做【钉子户】退出更新"
 TIME g "-------------------------------------------------"
 read -p " 请输入 序号 然后 敲回车确认： " CHOOSE
 case $CHOOSE in
