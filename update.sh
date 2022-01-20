@@ -28,7 +28,7 @@ TIME g "[3] 更新至 2022.1.21 编译的 R22.1.1 5.15.15"
 echo
 TIME r "[4] 内核为 5.4.134 玩 Docker 选择此版"
 echo
-TIME r "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
+TIME g "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
 echo
 TIME g "[0] 说啥也不好使了，继续做【钉子户】退出 本次更新"
 TIME g "-------------------------------------------------"
