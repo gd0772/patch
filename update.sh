@@ -19,19 +19,19 @@ TIME() {
 }
 
 while :; do
-TIME g "--------------------------------------------------"
+TIME g "--------------------------------------------"
 TIME g "[1] 更新至 2022.1.21 编译的 R22.1.1 5.4.172"
 echo
 TIME g "[2] 更新至 2022.1.21 编译的 R22.1.1 5.10.92"
 echo
 TIME g "[3] 更新至 2022.1.21 编译的 R22.1.1 5.15.15"
 echo
-TIME r "[4] 内核为 5.4.134 玩 Docker 选择此版"
+TIME r "[4] 更新至 2022.1.21 5.4.134 集成 Docker 版 "
 echo
 TIME g "[5] 一键无脑安装 Docker 及 DockerMan 到固件"
 echo
 TIME g "[0] 说啥也不好使了，继续做【钉子户】退出更新"
-TIME g "-------------------------------------------------"
+TIME g "--------------------------------------------"
 read -p " 请输入 序号 然后 敲回车确认： " CHOOSE
 case $CHOOSE in
 1)
@@ -45,7 +45,7 @@ if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
 else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO curl -LO https://pan.gd772.com/d/update/update.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -68,7 +68,7 @@ if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
 else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO curl -LO https://pan.gd772.com/d/update/update.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -91,7 +91,7 @@ if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
 else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO curl -LO https://pan.gd772.com/d/update/update.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -114,7 +114,7 @@ if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
 else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO curl -LO https://pan.gd772.com/d/update/update.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
