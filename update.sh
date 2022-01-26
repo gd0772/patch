@@ -111,7 +111,7 @@ echo
 TIME y "[4] 内核为 5.4.134 玩 Docker 选择此版"
 cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
-url=https://pan.gd772.com/d/update/N1
+url=https://pan.gd772.com/d/update
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.4.134.tar.gz
 if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
