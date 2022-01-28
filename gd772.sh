@@ -41,6 +41,7 @@ TIME b "修改 系统文件..."
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/udpxy.lua > ./feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/openclash.lua > ./package/gd772/luci-app-openclash/luasrc/controller/openclash.lua
 TIME b "系统文件 修改完成"
 echo
 TIME y "添加 gd772 Package"
