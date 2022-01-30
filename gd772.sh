@@ -66,6 +66,10 @@ TIME y "添加 SmartDNS"
 git clone https://github.com/pymumu/luci-app-smartdns.git -b lede ./package/gd772/luci-app-smartdns
 git clone https://github.com/pymumu/openwrt-smartdns.git ./feeds/packages/net/smartdns
 echo
+TIME y "添加 MosDNS"
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/gd772/luci-app-mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/gd772/luci-app-mosdns/mosdns
+echo
 TIME y "添加 KPR去广告"
 git clone https://github.com/project-lede/luci-app-godproxy package/gd772/luci-app-godproxy
 echo
