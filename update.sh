@@ -45,11 +45,11 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 url=https://pan.gd772.com/d/update/N1/2022.01.30
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.4.175.tar.gz
-if [ -f "/etc/AutoUpdate.sh" ]; then
-cp -r /etc/AutoUpdate.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
-else                                        #升级脚本 不存在 则下载到mmcblk2p4目录
+if [ -f "/etc/update.sh" ]; then
+cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
+else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO https://pan.gd772.com/d/update/AutoUpdate.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -57,8 +57,8 @@ curl -LO $url/$Firmware
 TIME g "===============================下载完成,解压中==============================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "============================解压完成,开始升级固件============================"
-chmod 755 AutoUpdate.sh
-bash AutoUpdate.sh *.img
+chmod 755 update.sh
+bash update.sh *.img
 break
 ;;
 2)
@@ -68,11 +68,11 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 url=https://pan.gd772.com/d/update/N1/2022.01.30
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.10.95.tar.gz
-if [ -f "/etc/AutoUpdate.sh" ]; then
-cp -r /etc/AutoUpdate.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
-else                                        #升级脚本 不存在 则下载到mmcblk2p4目录
+if [ -f "/etc/update.sh" ]; then
+cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
+else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO https://pan.gd772.com/d/update/AutoUpdate.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -80,8 +80,8 @@ curl -LO $url/$Firmware
 TIME g "===============================下载完成,解压中==============================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "============================解压完成,开始升级固件============================"
-chmod 755 AutoUpdate.sh
-bash AutoUpdate.sh *.img
+chmod 755 update.sh
+bash update.sh *.img
 break
 ;;
 3)
@@ -91,11 +91,11 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 url=https://pan.gd772.com/d/update/N1/2022.01.30
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.15.18.tar.gz
-if [ -f "/etc/AutoUpdate.sh" ]; then
-cp -r /etc/AutoUpdate.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
-else                                        #升级脚本 不存在 则下载到mmcblk2p4目录
+if [ -f "/etc/update.sh" ]; then
+cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
+else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO https://pan.gd772.com/d/update/AutoUpdate.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -103,8 +103,8 @@ curl -LO $url/$Firmware
 TIME g "===============================下载完成,解压中==============================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "============================解压完成,开始升级固件============================"
-chmod 755 AutoUpdate.sh
-bash AutoUpdate.sh *.img
+chmod 755 update.sh
+bash update.sh *.img
 break
 ;;
 4)
@@ -114,11 +114,11 @@ cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
 url=https://pan.gd772.com/d/update
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.4.134.tar.gz
-if [ -f "/etc/AutoUpdate.sh" ]; then
-cp -r /etc/AutoUpdate.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
-else                                        #升级脚本 不存在 则下载到mmcblk2p4目录
+if [ -f "/etc/update.sh" ]; then
+cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
+else                                    #升级脚本 不存在 则下载到mmcblk2p4目录
 cd /mnt/mmcblk2p4
-curl -LO https://pan.gd772.com/d/update/AutoUpdate.sh
+curl -LO https://pan.gd772.com/d/update/update.sh
 fi
 echo
 TIME g "================================ 下载固件中 =================================="
@@ -126,8 +126,8 @@ curl -LO $url/$Firmware
 TIME g "===============================下载完成,解压中==============================="
 tar -zxvf *tar.gz && rm -f *.tar.gz
 TIME r "============================解压完成,开始升级固件============================"
-chmod 755 AutoUpdate.sh
-bash AutoUpdate.sh *.img
+chmod 755 update.sh
+bash update.sh *.img
 break
 ;;
 5)
