@@ -51,7 +51,7 @@ git clone https://github.com/fw876/helloworld package/gd772/ssrplus
 echo
 TIME y "添加 小猫咪"
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/gd772/luci-app-openclash
-curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/openclash.lua > ./package/gd772/luci-app-openclash/luasrc/controller/openclash.lua
+#curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/openclash.lua > ./package/gd772/luci-app-openclash/luasrc/controller/openclash.lua
 echo
 TIME y "添加 Pass wall"
 git clone https://github.com/xiaorouji/openwrt-passwall package/gd772/passwall
