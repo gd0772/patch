@@ -22,11 +22,11 @@ while :; do
 echo
 TIME g "------- gd772 N1固件 在线更新 菜单 --------"
 echo
-TIME g "[1] 更新至 2022.1.30 编译的 R22.1.1 5.4.175"
+TIME g "[1] 更新至 2022.2.1 编译的 R22.1.1 5.4.175"
 echo
-TIME g "[2] 更新至 2022.1.30 编译的 R22.1.1 5.10.95"
+TIME g "[2] 更新至 2022.2.1 编译的 R22.1.1 5.10.95"
 echo
-TIME g "[3] 更新至 2022.1.30 编译的 R22.1.1 5.15.18"
+TIME g "[3] 更新至 2022.2.1 编译的 R22.1.1 5.15.18"
 #echo
 #TIME r "[4] 更新至 2022.1.21 5.4.134 集成 Docker 版 "
 echo
@@ -40,10 +40,10 @@ read -p " 请输入 序号 然后 敲回车确认： " CHOOSE
 case $CHOOSE in
 1)
 echo
-TIME g "[1] 更新至 2022.1.30 编译的 R22.1.1 5.4.175"
+TIME g "[1] 更新至 2022.2.1 编译的 R22.1.1 5.4.175"
 cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
-url=https://pan.gd772.com/d/update/N1/2022.01.30
+url=https://pan.gd772.com/d/update/2022.02.01
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.4.175.tar.gz
 if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
@@ -63,10 +63,10 @@ break
 ;;
 2)
 echo
-TIME g "[2] 更新至 2022.1.30 编译的 R22.1.1 5.10.95"
+TIME g "[2] 更新至 2022.2.1 编译的 R22.1.1 5.10.95"
 cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
-url=https://pan.gd772.com/d/update/N1/2022.01.30
+url=https://pan.gd772.com/d/update/2022.02.01
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.10.95.tar.gz
 if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
@@ -86,10 +86,10 @@ break
 ;;
 3)
 echo
-TIME g "[3] 更新至 2022.1.30 编译的 R22.1.1 5.15.18"
+TIME g "[3] 更新至 2022.2.1 编译的 R22.1.1 5.15.18"
 cd /mnt/mmcblk2p4
 rm -rf *.sh Armbian_*
-url=https://pan.gd772.com/d/update/N1/2022.01.30
+url=https://pan.gd772.com/d/update/2022.02.01
 Firmware=Armbian_Phicomm-N1_OP-R22.1.1_5.15.18.tar.gz
 if [ -f "/etc/update.sh" ]; then
 cp -r /etc/update.sh /mnt/mmcblk2p4     #升级脚本 存在   则复制到mmcblk2p4目录
