@@ -219,10 +219,10 @@ sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/contro
 sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/model/cbi/aliyundrive-webdav/*.lua
 sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/view/aliyundrive-webdav/*.htm
 
-TIME l "菜单调理 完成"
-#echo
-#TIME y "更新固件 编译日期"
-#sed -i "s/2022.01.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
+TIME l "菜单调整 完成"
+echo
+TIME y "更新固件 编译日期"
+sed -i "s/2022.01.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
 
 echo 
 TIME y "更换5.4内核"
