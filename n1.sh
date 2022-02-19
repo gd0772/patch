@@ -33,6 +33,8 @@ rm -rf ./package/lean/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 rm -rf ./package/lean/luci-app-usb-printer
 rm -rf ./package/lean/lisaac/luci-app-dockerman
+rm -rf ./package/lean/luci-app-unblockmusic
+
 echo
 TIME b "修改 默认IP为 192.168.123.2"
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
@@ -81,6 +83,7 @@ echo
 echo
 TIME y "添加 Dockerman"
 rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
+
 echo             
 TIME b "插件 重命名..."
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
