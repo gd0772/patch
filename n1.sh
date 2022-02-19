@@ -75,6 +75,9 @@ echo
 TIME y "汉化 实时监控"
 rm -rf ./package/lean/luci-app-netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata ./package/lean/luci-app-netdata
 rm -rf ./feeds/packages/admin/netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/netdata ./feeds/packages/admin/netdata
+TIME y "添加 解除网易云音乐"
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/gd772/luci-app-unblockneteasemusic
+echo  
 echo
 TIME y "添加 Dockerman"
 rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
@@ -106,7 +109,7 @@ sed -i 's/Frps/Frp 服务端/g' package/lean/luci-app-frps/luasrc/controller/frp
 
 sed -i 's/Nps 内网穿透/Nps 客户端/g' package/lean/luci-app-nps/po/zh-cn/nps.po
 
-sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' package/lean/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/gd772/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
 sed -i 's/Docker CE 容器/Docker容器/g' package/lean/luci-app-docker/po/zh-cn/docker.po
 
@@ -208,7 +211,12 @@ TIME b "调整 阿里云盘 到 存储 菜单"
 sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/controller/*.lua
 sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/model/cbi/aliyundrive-webdav/*.lua
 sed -i 's/services/nas/g' package/lean/luci-app-aliyundrive-webdav/luasrc/view/aliyundrive-webdav/*.htm
-
+TIME b "调整 Aria2 到 存储 菜单"
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aria2/luasrc/controller/aria2.lua
+TIME b "调整 硬盘休眠 到 存储 菜单"
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/luasrc/controller/hd_idle.lua
+TIME l "调整完成"
+echo
 TIME l "菜单调理 完成"
 #echo
 #TIME y "更新固件 编译日期"
