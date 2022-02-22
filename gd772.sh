@@ -130,7 +130,7 @@ sed -i 's/MWAN3 分流助手/分流助手/g' feeds/luci/applications/luci-app-mw
 sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
 sed -i 's/实时流量监测/流量监测/g' feeds/luci/applications/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
 TIME b "重命名 完成"
-#sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
+sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
 echo
 TIME b "菜单调整..."
 TIME b "调整 网络共享 到 存储菜单"
