@@ -192,6 +192,7 @@ sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' ./target/linux/x86/Makef
 echo 
 TIME y "升级 内核版本 5.4.183"
 sed -i 's/.175/.183/g' ./include/kernel-version.mk
+sed -i 's/5.4.175/5.4.183/g' ./include/kernel-version.mk
 sed -i 's/ac901bdffb1488d6c730ca7ab42322163dd331b240e2f06ad83d199e251a4840/2d4b0b77644835410b2a5f599b2893fe199d5542615684207f579753020cc99c/g' ./include/kernel-version.mk
 echo
 TIME g "自定义文件修复权限"
