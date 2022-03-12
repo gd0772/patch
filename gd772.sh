@@ -55,7 +55,7 @@ TIME y "添加 小猫咪"
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/gd772/luci-app-openclash
 echo
 TIME y "添加 Pass wall"
-git clone https://github.com/xiaorouji/openwrt-passwall package/gd772/passwall
+git clone https://github.com/xiaorouji/openwrt-passwall passwall && git clone -b luci https://github.com/xiaorouji/openwrt-passwall && mv openwrt-passwall/luci-app-passwall passwall && rm -r openwrt-passwall
 echo
 TIME y "添加 Hello World"
 git clone https://github.com/jerrykuku/luci-app-vssr package/gd772/luci-app-vssr
@@ -149,17 +149,17 @@ sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/control
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 TIME b "调整 Pass Wall 到 GFW 菜单"
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/global/*.htm
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/log/*.htm
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/rule/*.htm
-sed -i 's/services/vpn/g' package/gd772/luci-app-passwall/luasrc/view/passwall/server/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
 TIME b "调整 Hello World 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
@@ -189,11 +189,11 @@ echo
 TIME y "更换5.4内核"
 sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' ./target/linux/x86/Makefile
 #sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
-echo 
-TIME y "升级 内核版本 5.4.183"
-sed -i 's/.175/.183/g' ./include/kernel-5.4
-sed -i 's/5.4.175/5.4.183/g' ./include/kernel-5.4
-sed -i 's/ac901bdffb1488d6c730ca7ab42322163dd331b240e2f06ad83d199e251a4840/2d4b0b77644835410b2a5f599b2893fe199d5542615684207f579753020cc99c/g' ./include/kernel-5.4
+#echo 
+#TIME y "升级 内核版本 5.4.183"
+#sed -i 's/.175/.183/g' ./include/kernel-5.4
+#sed -i 's/5.4.175/5.4.183/g' ./include/kernel-5.4
+#sed -i 's/ac901bdffb1488d6c730ca7ab42322163dd331b240e2f06ad83d199e251a4840/2d4b0b77644835410b2a5f599b2893fe199d5542615684207f579753020cc99c/g' ./include/kernel-5.4
 echo
 TIME g "自定义文件修复权限"
 chmod -R 755 package/gd772
