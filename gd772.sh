@@ -132,7 +132,7 @@ sed -i 's/实时流量监测/流量监测/g' feeds/luci/applications/luci-app-wr
 TIME b "重命名 完成"
 sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
 echo
-TIME b "菜单调整 整理..."
+TIME b "菜单调整..."
 TIME b "调整 网络共享 到 存储菜单"
 sed -i 's/\"services\"/\"nas\"/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
 TIME b "调整 分流助手 到 网络菜单"
