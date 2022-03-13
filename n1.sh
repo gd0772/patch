@@ -35,6 +35,7 @@ rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 rm -rf ./feeds/luci/applications/luci-app-usb-printer
 rm -rf ./feeds/luci/applications/luci-app-dockerman
 rm -rf ./feeds/luci/applications/luci-app-unblockmusic
+rm -rf ./feeds/luci/applications/luci-app-ipsec-vpnd
 echo
 TIME b "修改 默认IP为 192.168.123.2"
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
@@ -115,13 +116,13 @@ sed -i 's/Rclone/网盘挂载/g' feeds/luci/applications/luci-app-rclone/luasrc/
 sed -i 's/msgstr "Aria2"/msgstr "Aria2下载"/g' feeds/luci/applications/luci-app-aria2/po/zh-cn/aria2.po
 sed -i 's/_("qBittorrent")/_("BT下载")/g' feeds/luci/applications/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
 sed -i 's/BaiduPCS Web/百毒网盘/g' feeds/luci/applications/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
-sed -i 's/IPSec VPN 服务器/IPSec 服务/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
+sed -i 's/IPSec VPN 服务器/IPSec 服务/g' package/lean/luci-app-ipsec-server/po/zh-cn/ipsec.po
 sed -i 's/"PPTP VPN 服务器"/"PPTP 服务"/g' feeds/luci/applications/luci-app-pptp-server/po/zh-cn/pptp.po
 sed -i 's/V2ray 服务器/V2ray 服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
 sed -i 's/"OpenVPN 服务器"/"OpenVPN"/g' feeds/luci/applications/luci-app-openvpn-server/po/zh-cn/openvpn-server.po
 sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
-sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
+sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' package/lean/luci-app-ipsec-server/luasrc/controller/ipsec-server.lua
 sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-openvpn-server/luasrc/controller/openvpn-server.lua
 sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
@@ -182,7 +183,7 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aria2/luasrc/controll
 TIME b "调整 硬盘休眠 到 存储 菜单"
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/luasrc/controller/hd_idle.lua
 TIME l "调整完成"
-echo
+#echo
 #TIME y "更新固件 编译日期"
 #sed -i "s/2021.10.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 echo
