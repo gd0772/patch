@@ -36,6 +36,7 @@ rm -rf ./feeds/luci/applications/luci-app-usb-printer
 rm -rf ./feeds/luci/applications/luci-app-dockerman
 rm -rf ./feeds/luci/applications/luci-app-unblockmusic
 rm -rf ./feeds/luci/applications/luci-app-ipsec-vpnd
+rm -rf ./feeds/luci/applications/luci-app-samba4
 echo
 TIME b "修改 默认IP为 192.168.123.254"
 sed -i "s/192.168.1.1/192.168.123.254/g" package/base-files/files/bin/config_generate
@@ -190,12 +191,6 @@ sed -i "s/2022.02.01/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files
 echo 
 TIME y "更换5.4内核"
 sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' ./target/linux/x86/Makefile
-#sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
-#echo 
-#TIME y "升级 内核版本 5.4.183"
-#sed -i 's/.175/.183/g' ./include/kernel-5.4
-#sed -i 's/5.4.175/5.4.183/g' ./include/kernel-5.4
-#sed -i 's/ac901bdffb1488d6c730ca7ab42322163dd331b240e2f06ad83d199e251a4840/2d4b0b77644835410b2a5f599b2893fe199d5542615684207f579753020cc99c/g' ./include/kernel-5.4
 echo
 TIME g "自定义文件修复权限"
 chmod -R 755 package/gd772
