@@ -44,6 +44,7 @@ TIME b "修改 系统文件..."
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/udpxy.lua > ./feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
+rm -rf ./feeds/packages/net/samba4 && svn co https://github.com/sirpdboy/diy/trunk/samba4 ./feeds/packages/net/samba4
 TIME b "系统文件 修改完成"
 echo
 TIME y "添加 gd772 Package"
@@ -196,6 +197,5 @@ TIME g "自定义文件修复权限"
 chmod -R 755 package/gd772
 echo
 TIME g "更新配置..."
-./scripts/feeds update -i
 ./scripts/feeds install -a
 TIME g "配置更新完成"
