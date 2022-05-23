@@ -28,8 +28,6 @@ rm -rf ./feeds/luci/themes/luci-theme-netgear
 rm -rf ./feeds/luci/themes/luci-theme-material
 TIME r "删除重复插件"
 rm -rf ./feeds/packages/net/smartdns
-rm -rf ./feeds/packages/admin/netdata
-rm -rf ./feeds/luci/applications/luci-app-netdata
 rm -rf ./feeds/luci/applications/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 rm -rf ./feeds/luci/applications/luci-app-usb-printer
@@ -52,20 +50,20 @@ rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd77
 echo
 TIME y "添加 SSR Plus+"
 git clone https://github.com/fw876/helloworld package/gd772/ssrplus
-curl -fsSL https://raw.githubusercontent.com/cangzair/Public/main/shadowsocksr.lua > ./package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i '12a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 echo
 TIME y "添加 小猫咪"
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/gd772/luci-app-openclash
 echo
 TIME y "添加 Pass wall"
 git clone https://github.com/xiaorouji/openwrt-passwall package/gd772/passwall && git clone -b luci https://github.com/xiaorouji/openwrt-passwall && mv openwrt-passwall/luci-app-passwall package/gd772/passwall && rm -rf openwrt-passwall
-curl -fsSL https://raw.githubusercontent.com/cangzair/Public/main/passwall.lua > ./package/gd772/passwall/luci-app-passwall/luasrc/controller/passwall.lua
+echo
+TIME y "添加 Pass wall2"
+git clone https://github.com/xiaorouji/openwrt-passwall2 package/gd772/passwall2
+sed -i '16a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/passwall2/luci-app-passwall2/luasrc/controller/passwall2.lua
 echo
 TIME y "添加 Hello World"
 git clone https://github.com/jerrykuku/luci-app-vssr package/gd772/luci-app-vssr
-echo
-TIME y "添加 京东签到"
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/gd772/luci-app-jd-dailybonus
 echo
 TIME y "添加 SmartDNS"
 git clone https://github.com/pymumu/luci-app-smartdns.git -b lede ./package/gd772/luci-app-smartdns
@@ -80,7 +78,6 @@ git clone https://github.com/tty228/luci-app-serverchan.git ./package/gd772/luci
 echo
 TIME y "汉化 实时监控"
 rm -rf ./feeds/luci/applications/luci-app-netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata ./feeds/luci/applications/luci-app-netdata
-rm -rf ./feeds/packages/admin/netdata && svn co https://github.com/sirpdboy/sirpdboy-package/trunk/netdata ./feeds/packages/admin/netdata
 echo
 TIME y "添加 Dockerman"
 rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/gd772/luci-app-dockerman
@@ -101,7 +98,6 @@ sed -i 's/广告屏蔽大师 Plus+/广告屏蔽/g' feeds/luci/applications/luci-
 sed -i 's/iKoolProxy 滤广告/iKP去广告/g' package/gd772/luci-app-ikoolproxy/luasrc/controller/*.lua
 sed -i 's/iKoolProxy滤广告/iKP去广告/g' package/gd772/luci-app-ikoolproxy/luasrc/model/cbi/koolproxy/*.lua
 sed -i 's/iKoolProxy 滤广告/iKP去广告/g' package/gd772/luci-app-ikoolproxy/luasrc/view/koolproxy/*.htm
-sed -i 's/京东签到服务/京东签到/g' package/gd772/luci-app-jd-dailybonus/luasrc/controller/jd-dailybonus.lua
 sed -i 's/msgstr "KMS 服务器"/msgstr "KMS 激活"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 sed -i 's/Frp 内网穿透/Frp 客户端/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
@@ -119,13 +115,13 @@ sed -i 's/Rclone/网盘挂载/g' feeds/luci/applications/luci-app-rclone/luasrc/
 sed -i 's/msgstr "Aria2"/msgstr "Aria2下载"/g' feeds/luci/applications/luci-app-aria2/po/zh-cn/aria2.po
 sed -i 's/_("qBittorrent")/_("BT下载")/g' feeds/luci/applications/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
 sed -i 's/BaiduPCS Web/百毒网盘/g' feeds/luci/applications/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
-sed -i 's/IPSec VPN 服务器/IPSec 服务/g' package/lean/luci-app-ipsec-server/po/zh-cn/ipsec.po
+sed -i 's/IPSec VPN 服务器/IPSec 服务/g' feeds/luci/applications/luci-app-ipsec-server/po/zh-cn/ipsec-server.po
 sed -i 's/"PPTP VPN 服务器"/"PPTP 服务"/g' feeds/luci/applications/luci-app-pptp-server/po/zh-cn/pptp.po
 sed -i 's/V2ray 服务器/V2ray 服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
 sed -i 's/"OpenVPN 服务器"/"OpenVPN"/g' feeds/luci/applications/luci-app-openvpn-server/po/zh-cn/openvpn-server.po
 sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
-sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' package/lean/luci-app-ipsec-server/luasrc/controller/ipsec-server.lua
+sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-ipsec-server/luasrc/controller/ipsec-server.lua
 sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-openvpn-server/luasrc/controller/openvpn-server.lua
 sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
@@ -134,11 +130,11 @@ sed -i 's/MWAN3 分流助手/分流助手/g' feeds/luci/applications/luci-app-mw
 sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
 sed -i 's/实时流量监测/流量监测/g' feeds/luci/applications/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
 TIME b "重命名 完成"
-sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
+#sed -i 's/invalid/## invalid/g' feeds/packages/net/samba4/files/smb.conf.template
 echo
 TIME b "菜单调整..."
-TIME b "调整 网络共享 到 存储菜单"
-sed -i 's/\"services\"/\"nas\"/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
+#TIME b "调整 网络共享 到 存储菜单"
+#sed -i 's/\"services\"/\"nas\"/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
 TIME b "调整 分流助手 到 网络菜单"
 sed -i 's/\"services\"/\"network\"/g' feeds/luci/applications/luci-app-mwan3helper/luasrc/controller/mwan3helper.lua
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/mwan3helper_status.htm > ./feeds/luci/applications/luci-app-mwan3helper/luasrc/view/mwan3helper/mwan3helper_status.htm
@@ -157,13 +153,28 @@ sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/contro
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/api/*.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/api/*.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/auto_switch/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
+TIME b "调整 Pass Wall 2 到 GFW 菜单"
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/api/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/client/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/server/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/server/api/*.lua
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/app_update/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/auto_switch/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/global/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/log/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/node_list/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/rule/*.htm
+sed -i 's/services/vpn/g' package/gd772/passwall2/luci-app-passwall2/luasrc/view/passwall2/server/*.htm
 TIME b "调整 Hello World 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
