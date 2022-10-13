@@ -85,7 +85,7 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 echo             
 TIME b "插件 重命名..."
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
-sed -i 's/msgstr "Web 管理"/msgstr "管理访问"/g' feeds/luci/applications/luci-app-webadmin/po/zh-cn/webadmin.po
+sed -i 's/msgstr "Web 管理"/msgstr "web管理"/g' feeds/luci/applications/luci-app-webadmin/po/zh-cn/webadmin.po
 sed -i 's/TTYD 终端/命令行/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
 sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 sed -i 's/PassWall/Pass Wall/g' package/gd772/passwall/luci-app-passwall/po/zh-cn/passwall.po
