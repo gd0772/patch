@@ -21,19 +21,11 @@ TIME() {
 }
 
 echo
-TIME r "删除无用主题"
-rm -rf ./feeds/freifunk/themes
+TIME r "删除重复插件"
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-netgear
 rm -rf ./feeds/luci/themes/luci-theme-material
-TIME r "删除重复插件"
-rm -rf ./feeds/packages/net/smartdns
-rm -rf ./feeds/luci/applications/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
-rm -rf ./feeds/luci/applications/luci-app-usb-printer
-rm -rf ./feeds/luci/applications/luci-app-dockerman
-rm -rf ./feeds/luci/applications/luci-app-unblockmusic
-rm -rf ./feeds/luci/applications/luci-app-ipsec-vpnd
 echo
 TIME b "修改 默认IP为 192.168.123.254"
 sed -i "s/192.168.1.1/192.168.123.254/g" package/base-files/files/bin/config_generate
