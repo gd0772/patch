@@ -35,7 +35,7 @@ TIME y "修改 默认IP为 192.168.123.2"
 sed -i "s/192.168.1.1/192.168.123.2/g" package/base-files/files/bin/config_generate
 TIME y "修改 主机名为 N1"
 sed -i "s/'OpenWrt'/'N1'/g" package/base-files/files/bin/config_generate
-curl -fsSL https://raw.githubusercontent.com/cangzair/Public/main/aarch64/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
+curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/aarch64/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/udpxy.lua > ./feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
 echo
 TIME y "添加自定义配置"
