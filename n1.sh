@@ -64,7 +64,7 @@ sed -i '16a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' 
 echo
 TIME y "添加 Hello World"
 git clone https://github.com/jerrykuku/luci-app-vssr package/gd772/luci-app-vssr
-echo
+#echo
 #TIME y "添加 SmartDNS"
 #git clone https://github.com/pymumu/luci-app-smartdns.git -b lede ./package/gd772/luci-app-smartdns
 #git clone https://github.com/pymumu/openwrt-smartdns.git ./feeds/packages/net/smartdns
@@ -132,12 +132,6 @@ echo
 TIME y "调整 分流助手 到 网络菜单"
 sed -i 's/\"services\"/\"network\"/g' feeds/luci/applications/luci-app-mwan3helper/luasrc/controller/mwan3helper.lua
 curl -fsSL https://raw.githubusercontent.com/gd0772/patch/main/mwan3helper_status.htm > ./feeds/luci/applications/luci-app-mwan3helper/luasrc/view/mwan3helper/mwan3helper_status.htm
-#TIME y "调整 Dockerman 到 服务 菜单"
-#sed -i 's/"admin",/"admin","services",/g' package/gd772/luci-app-dockerman/luasrc/controller/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/model/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/view/dockerman/*.htm
-#sed -i 's/"admin/"admin\/services/g' package/gd772/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 TIME y "调整 SSRP 到 GFW 菜单"
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
