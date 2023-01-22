@@ -26,7 +26,7 @@ TIME r "删除重复插件"
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-netgear
 rm -rf ./feeds/luci/themes/luci-theme-material
-rm -rf ./feeds/luci/applications/luci-app-unblockmusic
+#rm -rf ./feeds/luci/applications/luci-app-unblockmusic
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 echo
 TIME b "修改 默认IP为 192.168.123.254"
@@ -73,9 +73,9 @@ rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci
 echo
 TIME y "添加 IKP去广告"
 git clone https://github.com/project-lede/luci-app-ikoolproxy package/gd772/luci-app-ikoolproxy
-echo
-TIME y "添加 解除网易云音乐"
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/gd772/luci-app-unblockneteasemusic
+#echo
+#TIME y "添加 解除网易云音乐"
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/gd772/luci-app-unblockneteasemusic
 echo             
 TIME b "插件 重命名..."
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
