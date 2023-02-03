@@ -101,7 +101,8 @@ sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-
 sed -i 's/Frp 内网穿透/Frp 客户端/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 sed -i 's/Frps/Frp 服务端/g' feeds/luci/applications/luci-app-frps/luasrc/controller/frps.lua
 sed -i 's/Nps 内网穿透/Nps 客户端/g' feeds/luci/applications/luci-app-nps/po/zh-cn/nps.po
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/gd772/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+#sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/gd772/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 sed -i 's/Docker CE 容器/Docker容器/g' feeds/luci/applications/luci-app-docker/po/zh-cn/docker.po
 sed -i 's/UU游戏加速器/UU加速器/g' feeds/luci/applications/luci-app-uugamebooster/po/zh-cn/uuplugin.po
 sed -i 's/网络存储/存储/g' feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
