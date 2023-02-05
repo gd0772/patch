@@ -28,7 +28,7 @@ rm -rf ./feeds/luci/applications/luci-app-jd-dailybonus
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 rm -rf ./feeds/luci/applications/luci-app-usb-printer
 rm -rf ./feeds/luci/applications/luci-app-dockerman
-rm -rf ./feeds/luci/applications/luci-app-unblockmusic
+# rm -rf ./feeds/luci/applications/luci-app-unblockmusic
 rm -rf ./feeds/luci/applications/luci-app-aliyundrive-fuse
 echo
 TIME y "修改 默认IP为 192.168.123.2"
