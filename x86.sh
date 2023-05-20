@@ -40,9 +40,11 @@ TIME b "系统文件 修改完成"
 echo
 TIME y "添加 gd772 Package"
 rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd772
+rm -rf ./package/gd772/theme/luci-theme-opentopd luci-theme-argon-dark-mod luci-theme-opentomcat
 git clone https://github.com/sirpdboy/netspeedtest.git package/gd772/netspeedtest
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/gd772/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-theme-opentopd package/gd772/luci-theme-opentopd
+
 echo
 TIME y "添加 SSR Plus+"
 git clone https://github.com/fw876/helloworld package/gd772/ssrplus
