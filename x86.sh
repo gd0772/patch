@@ -26,6 +26,7 @@ TIME r "删除重复插件"
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-netgear
 rm -rf ./feeds/luci/themes/luci-theme-material
+rm -rf ./feeds/luci/themes/luci-theme-argon-mod
 rm -rf ./feeds/luci/applications/luci-app-unblockmusic
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 echo
