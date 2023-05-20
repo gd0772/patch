@@ -26,7 +26,7 @@ TIME r "删除重复插件"
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-netgear
 rm -rf ./feeds/luci/themes/luci-theme-material
-#rm -rf ./feeds/luci/applications/luci-app-unblockmusic
+rm -rf ./feeds/luci/applications/luci-app-unblockmusic
 rm -rf ./feeds/luci/applications/luci-app-rp-pppoe-server
 echo
 TIME b "修改 默认IP为 192.168.123.254"
@@ -40,6 +40,9 @@ TIME b "系统文件 修改完成"
 echo
 TIME y "添加 gd772 Package"
 rm -rf package/gd772 && git clone https://github.com/gd0772/package package/gd772
+git clone https://github.com/sirpdboy/netspeedtest.git package/gd772/netspeedtest
+git clone https://github.com/sirpdboy/luci-app-partexp.git package/gd772/luci-app-partexp
+git clone https://github.com/sirpdboy/luci-theme-opentopd package/gd772/luci-theme-opentopd
 echo
 TIME y "添加 SSR Plus+"
 git clone https://github.com/fw876/helloworld package/gd772/ssrplus
@@ -73,9 +76,6 @@ rm -rf package/gd772/luci-app-dockerman && svn co https://github.com/lisaac/luci
 echo
 TIME y "添加 IKP去广告"
 git clone https://github.com/project-lede/luci-app-ikoolproxy package/gd772/luci-app-ikoolproxy
-#echo
-#TIME y "添加 解除网易云音乐"
-#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/gd772/luci-app-unblockneteasemusic
 echo             
 TIME b "插件 重命名..."
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
@@ -120,6 +120,7 @@ sed -i 's/MWAN3 分流助手/分流助手/g' feeds/luci/applications/luci-app-mw
 sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
 sed -i 's/实时流量监测/流量监测/g' feeds/luci/applications/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
 sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' feeds/luci/applications/luci-app-socat/po/zh-cn/socat.po
+sed -i "s/title=VPN/title=GFW/g" package/gd772/luci-theme-opentopd/htdocs/luci-static/opentopd/css/style.css
 TIME b "重命名 完成"
 echo
 TIME b "菜单调整..."
