@@ -28,6 +28,9 @@ echo
 # ttyd终端 需密码登陆
 sed -i '7a uci set system.@system[0].ttylogin=1' package/lean/default-settings/files/zzz-default-settings
 echo
+TIME y "添加 atmaterial 主题"
+svn co https://github.com/gd0772/package/trunk/luci-theme-atmaterial package/gd772/luci-theme-atmaterial
+echo
 TIME y "添加 opentopd 主题"
 git clone https://github.com/sirpdboy/luci-theme-opentopd package/gd772/luci-theme-opentopd
 sed -i "s/title=VPN/title=GFW/g" package/gd772/luci-theme-opentopd/htdocs/luci-static/opentopd/css/style.css
@@ -38,6 +41,15 @@ git clone https://github.com/sirpdboy/luci-app-partexp.git package/gd772/luci-ap
 echo
 TIME y "添加 关机"
 svn co https://github.com/gd0772/package/trunk/luci-app-poweroff package/gd772/luci-app-poweroff
+echo
+TIME y "添加 管控过滤"
+svn co https://github.com/gd0772/package/trunk/luci-app-control-weburl package/gd772/luci-app-control-weburl
+echo
+TIME y "添加 访问限制"
+svn co https://github.com/gd0772/package/trunk/luci-app-control-webrestriction package/gd772/luci-app-control-webrestriction
+echo
+TIME y "添加 定时唤醒"
+svn co https://github.com/gd0772/package/trunk/luci-app-control-timewol package/gd772/luci-app-control-timewol
 echo
 TIME y "添加 文件管理器"
 svn co https://github.com/gd0772/package/trunk/luci-app-filebrowser package/gd772/luci-app-filebrowser
@@ -120,9 +132,9 @@ sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' f
 # 调整 IPSec VPN 服务器 到 GFW 菜单
 sed -i '8d' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
 sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
-echo 
-TIME y "更换5.10内核"
-sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.10/g' ./target/linux/x86/Makefile
+#echo 
+#TIME y "更换5.10内核"
+#sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.10/g' ./target/linux/x86/Makefile
 echo
 TIME g "自定义文件修复权限"
 chmod -R 755 package/gd772
