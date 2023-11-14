@@ -66,6 +66,7 @@ sed -i 's/msgstr "KMS 服务器"/msgstr "KMS 服务"/g' feeds/luci/applications/
 sed -i 's/"上网时间控制"/"上网控制"/g' feeds/luci/applications/luci-app-accesscontrol/po/zh-cn/mia.po
 sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 # 存储
+sed -i 's/阿里云盘 WebDAV/阿里云盘/g' feeds/luci/applications/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 sed -i 's/"文件浏览器"/"文件管理"/g' package/gd772/luci-app-filebrowser/po/zh-cn/filebrowser.po
 sed -i 's/msgstr "FTP 服务器"/msgstr "FTP 服务"/g' feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
 # GFW
@@ -86,6 +87,10 @@ sed -i "s/2023.11.11/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files
 # 调整 上网时间控制 到 管控 菜单
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
+# 调整 阿里云盘 到 存储 菜单
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/*.lua
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/model/cbi/*.lua
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/view/*.htm
 # 调整 Open Clash 到 GFW 菜单
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/controller/*.lua
