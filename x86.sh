@@ -89,8 +89,8 @@ sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/lua
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
 # 调整 阿里云盘 到 存储 菜单
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/*.lua
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/model/cbi/*.lua
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/view/*.htm
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/model/cbi/aliyundrive-webdav/*.lua
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/view/aliyundrive-webdav/*.htm
 # 调整 Open Clash 到 GFW 菜单
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/controller/*.lua
