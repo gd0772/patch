@@ -28,37 +28,11 @@ echo
 # ttyd终端 需密码登陆
 sed -i '7a uci set system.@system[0].ttylogin=1' package/lean/default-settings/files/zzz-default-settings
 echo
-TIME y "添加 atmaterial 主题"
-svn co https://github.com/gd0772/package/trunk/luci-theme-atmaterial package/gd772/luci-theme-atmaterial
-echo
-TIME y "添加 opentopd 主题"
-git clone https://github.com/sirpdboy/luci-theme-opentopd package/gd772/luci-theme-opentopd
-sed -i "s/title=VPN/title=GFW/g" package/gd772/luci-theme-opentopd/htdocs/luci-static/opentopd/css/style.css
-echo
-# app
-TIME y "添加 分区扩容"
-git clone https://github.com/sirpdboy/luci-app-partexp.git package/gd772/luci-app-partexp
-echo
-TIME y "添加 关机"
-svn co https://github.com/gd0772/package/trunk/luci-app-poweroff package/gd772/luci-app-poweroff
-echo
-TIME y "添加 管控过滤"
-svn co https://github.com/gd0772/package/trunk/luci-app-control-weburl package/gd772/luci-app-control-weburl
-echo
-TIME y "添加 访问限制"
-svn co https://github.com/gd0772/package/trunk/luci-app-control-webrestriction package/gd772/luci-app-control-webrestriction
-echo
-TIME y "添加 定时唤醒"
-svn co https://github.com/gd0772/package/trunk/luci-app-control-timewol package/gd772/luci-app-control-timewol
-echo
-TIME y "添加 文件管理器"
-svn co https://github.com/gd0772/package/trunk/luci-app-filebrowser package/gd772/luci-app-filebrowser
+TIME y "My Package"
+git clone https://github.com/gd0772/package package/gd772
 echo
 TIME y "添加 alist"
 git clone https://github.com/sbwml/luci-app-alist package/gd772/alist
-echo
-TIME y "添加 小猫咪"
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/gd772/luci-app-openclash
 echo
 TIME y "添加 passwall"
 git clone https://github.com/kenzok8/small package/gd772/passwall
