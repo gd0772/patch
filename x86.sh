@@ -54,6 +54,9 @@ echo
 TIME y "添加 文件管理器"
 svn co https://github.com/gd0772/package/trunk/luci-app-filebrowser package/gd772/luci-app-filebrowser
 echo
+TIME y "添加 alist"
+git clone https://github.com/sbwml/luci-app-alist package/gd772/alist
+echo
 TIME y "添加 小猫咪"
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/gd772/luci-app-openclash
 echo
@@ -83,7 +86,7 @@ sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-
 # 管控
 sed -i 's/"上网时间控制"/"上网控制"/g' feeds/luci/applications/luci-app-accesscontrol/po/zh-cn/mia.po
 # 存储
-sed -i 's/阿里云盘 WebDAV/阿里云盘/g' feeds/luci/applications/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
+sed -i 's/Alist 文件列表/阿里云盘/g' package/gd772/alist/luci-app-alist/po/zh-cn/alist.po
 sed -i 's/"文件浏览器"/"文件管理"/g' package/gd772/luci-app-filebrowser/po/zh-cn/filebrowser.po
 sed -i 's/msgstr "FTP 服务器"/msgstr "FTP 服务"/g' feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
 sed -i 's/msgstr "qbittorrent"/msgstr "qb下载"/g' feeds/luci/applications/luci-app-qbittorrent/po/zh-cn/qbittorrent.po
