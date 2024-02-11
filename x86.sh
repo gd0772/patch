@@ -81,15 +81,11 @@ sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-
 # 欢迎页信息
 sed -i '63d' package/lean/autocore/files/x86/index.htm
 sed -i '62a localtime  = os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X"),' package/lean/autocore/files/x86/index.htm
-sed -i '750a <tr><td width="33%"><%:固件编译日期%></td><td id="cpuusage">gd772 2023.11.11</td></tr>' package/lean/autocore/files/x86/index.htm
-sed -i "s/2023.11.11/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
+sed -i '750a <tr><td width="33%"><%:固件编译日期%></td><td id="cpuusage">gd772 2024.02.10</td></tr>' package/lean/autocore/files/x86/index.htm
+sed -i "s/2024.02.10/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
 # 调整 上网时间控制 到 管控 菜单
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
-# 调整 阿里云盘 到 存储 菜单
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/*.lua
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/model/cbi/aliyundrive-webdav/*.lua
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/view/aliyundrive-webdav/*.htm
 # 调整 Open Clash 到 GFW 菜单
 sed -i '13a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/luci-app-openclash/luasrc/controller/openclash.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/*.lua
