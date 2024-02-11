@@ -41,8 +41,12 @@ echo
 TIME y "添加 SSR Plus+"
 git clone -b main https://github.com/fw876/helloworld package/gd772/ssrplus
 echo
+TIME y "添加 设置向导"
+git clone https://github.com/sirpdboy/luci-app-wizard package/gd772/luci-app-wizard
+echo
 # 状态
 sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
+rm -rf feeds/luci/applications/luci-app-netdata && git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 # 系统
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
 sed -i 's/TTYD 终端/终端/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
