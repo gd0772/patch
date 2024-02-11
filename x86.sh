@@ -115,6 +115,8 @@ sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' f
 # 调整 IPSec VPN 服务器 到 GFW 菜单
 sed -i '8d' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
 sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
+# 调整 网络唤醒 到 网络 菜单
+sed -i 's/services/network/g' feeds/luci/applications/luci-app-wol/luasrc/controller/*.lua
 #echo 
 #TIME y "更换5.10内核"
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.10/g' ./target/linux/x86/Makefile
