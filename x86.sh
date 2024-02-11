@@ -87,11 +87,13 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/lu
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/model/cbi/aliyundrive-webdav/*.lua
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/view/aliyundrive-webdav/*.htm
 # 调整 Open Clash 到 GFW 菜单
+sed -i '13a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/luci-app-openclash/luasrc/controller/openclash.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/view/openclash/*.htm
 # 调整 passwall 到 GFW 菜单"
+sed -i '13a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/passwall/luci-app-passwall/luasrc/controller/passwall.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/controller/passwall.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
 sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
