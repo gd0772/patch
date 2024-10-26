@@ -31,86 +31,77 @@ echo
 TIME y "My Package"
 git clone https://github.com/gd0772/package package/gd772
 echo
-TIME y "添加 alist"
-git clone https://github.com/sbwml/luci-app-alist package/gd772/alist
-echo
-TIME y "添加 passwall"
-git clone https://github.com/kenzok8/small package/gd772/passwall
-rm -rf package/gd772/passwall/luci-app-passwall2 package/gd772/passwall/luci-app-ssr-plus package/gd772/passwall/luci-app-bypass
-echo
-TIME y "添加 SSR Plus+"
-git clone -b main https://github.com/fw876/helloworld package/gd772/ssrplus
-echo
-TIME y "添加 设置向导"
-git clone https://github.com/sirpdboy/luci-app-wizard package/gd772/luci-app-wizard
+TIME y "添加 GFW"
+git clone https://github.com/kenzok8/small package/gd772/gfw
+rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/luci/applications/luci-app-passwall
+rm -rf feeds/luci/applications/luci-app-passwall2
 echo
 # 状态
-sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
 rm -rf feeds/luci/applications/luci-app-netdata && git clone https://github.com/sirpdboy/luci-app-netdata feeds/luci/applications/luci-app-netdata
 # 系统
-sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
-sed -i 's/TTYD 终端/终端/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
+sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh_Hans/base.po
 # 服务
-sed -i 's/广告屏蔽大师 Plus+/广告屏蔽/g' feeds/luci/applications/luci-app-adbyby-plus/po/zh-cn/adbyby.po
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/微信推送/信息推送/g' feeds/luci/applications/luci-app-serverchan/luasrc/controller/serverchan.lua
-sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
-sed -i 's/Frp 内网穿透/Frp客户端/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
-sed -i 's/_("Frps")/_("Frp服务端")/g' feeds/luci/applications/luci-app-frps/luasrc/controller/frps.lua
-sed -i 's/Nps 内网穿透/Nps客户端/g' feeds/luci/applications/luci-app-nps/po/zh-cn/nps.po
-sed -i 's/_("udpxy")/_("udp组播")/g' feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
-sed -i 's/msgstr "KMS 服务器"/msgstr "KMS 服务"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
-sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/gd772/gfw/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/msgstr "KMS 服务器"/msgstr "KMS 服务"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh_Hans/vlmcsd.po
+sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 # 管控
 sed -i 's/"上网时间控制"/"上网控制"/g' feeds/luci/applications/luci-app-accesscontrol/po/zh-cn/mia.po
 # 存储
-sed -i 's/Alist 文件列表/阿里云盘/g' package/gd772/alist/luci-app-alist/po/zh-cn/alist.po
-sed -i 's/"文件浏览器"/"文件管理"/g' package/gd772/luci-app-filebrowser/po/zh-cn/filebrowser.po
-sed -i 's/msgstr "FTP 服务器"/msgstr "FTP 服务"/g' feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
-sed -i 's/msgstr "qbittorrent"/msgstr "qb下载"/g' feeds/luci/applications/luci-app-qbittorrent/po/zh-cn/qbittorrent.po
+sed -i 's/msgstr "AList"/msgstr "网盘挂载"/g' feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+sed -i 's/msgstr "FileBrowser"/msgstr "文件管理"/g' feeds/luci/applications/luci-app-filebrowser/po/zh_Hans/filebrowser.po
+sed -i 's/msgstr "FTP 服务器"/msgstr "FTP 服务"/g' feeds/luci/applications/luci-app-vsftpd/po/zh_Hans/vsftpd.po
+sed -i 's/msgstr "qbittorrent"/msgstr "qb下载"/g' feeds/luci/applications/luci-app-qbittorrent/po/zh_Hans/qbittorrent.po
 # GFW
-sed -i 's/IPSec VPN 服务器/IPSec 服务/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
+sed -i 's/IPSec VPN 服务器/IPSec 服务/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh_Hans/ipsec.po
 # 网络
-sed -i '18d' feeds/luci/applications/luci-app-arpbind/po/zh-cn/arpbind.po
-sed -i '17a msgstr "MAC绑定"' feeds/luci/applications/luci-app-arpbind/po/zh-cn/arpbind.po
-sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' feeds/luci/applications/luci-app-socat/po/zh-cn/socat.po
+sed -i '18d' feeds/luci/applications/luci-app-arpbind/po/zh_Hans/arpbind.po
+sed -i '17a msgstr "MAC绑定"' feeds/luci/applications/luci-app-arpbind/po/zh_Hans/arpbind.po
+sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' feeds/luci/applications/luci-app-socat/po/zh_Hans/socat.po
 sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 # 菜单重命名
-sed -i 's/网络存储/存储/g' feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
-sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
+sed -i 's/网络存储/存储/g' feeds/luci/applications/luci-app-vsftpd/po/zh_Hans/vsftpd.po
+sed -i 's/带宽监控/统计/g' feeds/luci/applications/luci-app-nlbwmon/po/zh_Hans/nlbwmon.po
 # 欢迎页信息
 sed -i '63d' package/lean/autocore/files/x86/index.htm
 sed -i '62a localtime  = os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X"),' package/lean/autocore/files/x86/index.htm
 sed -i '750a <tr><td width="33%"><%:固件编译日期%></td><td id="cpuusage">gd772 2024.02.10</td></tr>' package/lean/autocore/files/x86/index.htm
 sed -i "s/2024.02.10/$(TZ=UTC-8 date "+%Y.%m.%d")/g" package/lean/autocore/files/x86/index.htm
+# 调整 ttyd 到 系统菜单
+sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 调整 上网时间控制 到 管控 菜单
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-accesscontrol/luasrc/view/mia/mia_status.htm
+# 调整 Alist 到 NAS 菜单
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
+# 调整 文件管理 到 NAS 菜单
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 # 调整 Open Clash 到 GFW 菜单
 sed -i '13a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/luci-app-openclash/luasrc/controller/openclash.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-sed -i 's/services/vpn/g' package/gd772/luci-app-openclash/luasrc/view/openclash/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-openclash/luasrc/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-openclash/luasrc/view/openclash/*.htm
 # 调整 passwall 到 GFW 菜单"
 sed -i '13a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/passwall/luci-app-passwall/luasrc/controller/passwall.lua
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/controller/passwall.lua
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/passwall/*.lua
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
-sed -i 's/services/vpn/g' package/gd772/passwall/luci-app-passwall/luasrc/view/passwall/socks_auto_switch/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/controller/passwall.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/passwall/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/global/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/log/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/rule/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/server/*.htm
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-passwall/luasrc/view/passwall/socks_auto_switch/*.htm
 # 调整 SSRP 到 GFW 菜单
-sed -i '12a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
-sed -i 's/services/vpn/g' package/gd772/ssrplus/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+sed -i '12a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' package/gd772/gfw/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-ssr-plus/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
+sed -i 's/services/vpn/g' package/gd772/gfw/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 # 调整 Zerotier 到 GFW 菜单
 sed -i '8d' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
@@ -118,7 +109,9 @@ sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' f
 sed -i '8d' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
 sed -i '7a entry({"admin", "vpn"}, firstchild(), "GFW", 45).dependent = false' feeds/luci/applications/luci-app-ipsec-vpnd/luasrc/controller/ipsec-server.lua
 # 调整 网络唤醒 到 网络 菜单
-sed -i 's/services/network/g' feeds/luci/applications/luci-app-wol/luasrc/controller/*.lua
+sed -i 's/services/network/g' feeds/luci/applications/luci-app-wol/root/usr/share/luci/menu.d/luci-app-wol.json
+# 调整 统计 到 网络 菜单
+sed -i 's/services/network/g' feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 #echo 
 #TIME y "更换5.10内核"
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.10/g' ./target/linux/x86/Makefile
